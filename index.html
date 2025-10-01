@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SCALE Lab · Home</title>
+  <meta name="description" content="Sustainable circuits & systems, carbon-aware co-optimization, and memory-centric computing." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    main#snap { height: 100svh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+    section.panel { min-height: 100svh; scroll-snap-align: start; display: grid; place-items: center; padding: 84px 6vw 6vw; position: relative; isolation: isolate; }
+    .panel.hero { background:
+      radial-gradient(1200px 600px at 20% 10%, color-mix(in oklab, var(--primary) 15%, transparent), transparent),
+      radial-gradient(1000px 500px at 85% 20%, color-mix(in oklab, var(--primary) 10%, transparent), transparent); }
+    .panel.alt { background: color-mix(in oklab, var(--card) 85%, transparent); }
+  </style>
+</head>
+<body data-page="home">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+        <a href="index.html" aria-label="Go to home">SCALE Lab</a>
+      </div>
+      <nav>
+        <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
+        <ul id="menu">
+          <li><a data-page="research" href="research.html">Research</a></li>
+          <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
+          <li><a data-page="publication" href="publication.html">Publication</a></li>
+          <li><a data-page="people" href="people.html">People</a></li>
+          <li><a data-page="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="dots" aria-label="Section navigation">
+    <button class="dotbtn" data-target="#s1" aria-current="true" aria-label="Welcome"></button>
+    <button class="dotbtn" data-target="#s2" aria-label="About"></button>
+    <button class="dotbtn" data-target="#s3" aria-label="Research Highlights"></button>
+    <button class="dotbtn" data-target="#s4" aria-label="Contact"></button>
+  </nav>
+
+  <main id="snap">
+    <section id="s1" class="panel hero">
+      <div class="container" style="text-align:center;">
+        <h1 class="reveal">Sustainable Circuits and Architectures for Layered Eco-chips Lab</h1>
+        <p id="vision" class="lead reveal" style="margin-inline:auto; max-width:70ch;"></p>
+        <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <span class="badge">Carbon-Aware</span>
+          <span class="badge">3D-IC</span>
+          <span class="badge">Memory-Centric</span>
+          <span class="badge">CIM</span>
+          <span class="badge">ULV</span>
+        </div>
+        <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn primary" href="research.html">Explore Research</a>
+          <a class="btn" href="publication.html">Publication</a>
+          <a class="btn" href="advisor.html">Advisor</a>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        <div>Scroll</div>
+      </div>
+    </section>
+
+    <section id="s2" class="panel alt">
+      <div class="container">
+        <div class="grid">
+          <div class="col-6">
+            <h2 class="reveal">About the Lab</h2>
+            <p id="aboutVision" class="reveal"></p>
+            <div class="line"></div>
+            <p class="muted reveal">Office/Lab: Hsinchu City, Building XXX, 5F-510 · Email: lab@eecs.example.edu</p>
+          </div>
+          <div class="col-6 card reveal">
+            <div class="content">
+              <h3>Highlights</h3>
+              <ul>
+                <li>Cross-layer projects from materials to systems with strong publication potential.</li>
+                <li>Hands-on: FPGA/ASIC flows, Python/Matlab tooling, solid cloud infra.</li>
+                <li>Mentoring: weekly 1-on-1, monthly OKRs, academic & career coaching.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="s3" class="panel alt">
+      <div class="container" style="text-align:center;">
+        <h2 class="reveal">Research Highlights</h2>
+        <div id="highlights" class="grid" style="margin-top:10px;"></div>
+      </div>
+    </section>
+
+    <section id="s4" class="panel alt">
+      <div class="container" style="text-align:center;">
+        <h2 class="reveal">Get in Touch</h2>
+        <p class="lead reveal" style="margin-inline:auto; max-width:70ch;">Collaboration, student advising, or media inquiries — we'd love to hear from you.</p>
+        <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn primary" href="contact.html">Contact</a>
+          <a class="btn" href="people.html">Meet the Team</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="container footgrid">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="dot"></span><strong>EECS Lab</strong></div>
+        <div class="muted">© <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab. All rights reserved.</div>
+      </div>
+      <div class="right"><a class="chip" href="#s1">→ Back to Top</a></div>
+    </div>
+  </footer>
+  
+
+  <script src="assets/script.js"></script>
+  <script>
+    // Dots navigation + reveal
+    const dots = Array.from(document.querySelectorAll('.dotbtn'));
+    dots.forEach(btn => btn.addEventListener('click', () => {
+      const target = document.querySelector(btn.dataset.target);
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+    const panels = Array.from(document.querySelectorAll('section.panel'));
+    const dotById = Object.fromEntries(dots.map(d => [document.querySelector(d.dataset.target).id, d]));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) { if (e.isIntersecting && e.intersectionRatio > 0.5) {
+        for (const d of dots) d.setAttribute('aria-current','false'); dotById[e.target.id]?.setAttribute('aria-current','true');
+        e.target.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      }}}, { root: document.querySelector('main#snap'), threshold: [0.5] });
+    panels.forEach(p => io.observe(p));
+
+    loadSiteData().then(data => {
+      document.getElementById('vision').textContent = data.research.vision;
+      document.getElementById('aboutVision').textContent = data.research.vision;
+      const highlights = document.getElementById('highlights');
+      const cards = [];
+      for (const t of data.research.thrusts) {
+        const top = t.bullets.slice(0,3).map(s => `<li>${s}</li>`).join('');
+        cards.push(`<div class="col-6 card reveal"><div class="content"><h3>${t.title}</h3><ul class="muted" style="text-align:left; margin-top:8px;">${top}</ul></div></div>`);
+      }
+      highlights.innerHTML = cards.join('');
+    }).catch(console.error);
+  </script>
+</body>
+</html>

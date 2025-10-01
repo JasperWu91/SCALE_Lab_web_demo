@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advisor · SCALE Lab</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* Modern tech-inspired advisor page */
+    .advisor-hero {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+    
+    .advisor-photo {
+      width: 200px;
+      height: 240px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    
+    .advisor-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .advisor-photo.no-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-weak), var(--card));
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    .advisor-details h1 {
+      margin: 0 0 16px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    
+    .advisor-details .title {
+      font-size: 1.1rem;
+      color: var(--fg);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .advisor-details .institution {
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .contact-grid {
+      display: grid;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+    
+    .contact-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+    }
+    
+    .contact-label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    
+    .contact-value {
+      color: var(--fg);
+    }
+    
+    /* Section styling */
+    .section-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2px 24px 16px;
+      margin-bottom: 8px;
+    }
+    
+    .section-header {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--fg);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    
+    .item-list {
+      display: grid;
+      gap: 0;
+    }
+    
+    .list-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .list-item:last-child {
+      border-bottom: none;
+    }
+    
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .item-title {
+      font-weight: 600;
+      color: var(--fg);
+      font-size: 1rem;
+    }
+    
+    .item-period {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    .item-description {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    /* Research interests as simple list */
+    .research-grid {
+      display: grid;
+      gap: 16px;
+    }
+    
+    .research-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .research-item:last-child {
+      border-bottom: none;
+    }
+    
+    /* Awards in clean list format */
+    .awards-list {
+      display: grid;
+      gap: 0;
+    }
+    
+    .award-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+    }
+    
+    .award-item:last-child {
+      border-bottom: none;
+    }
+    
+    .award-title {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .award-year {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 880px) {
+      .advisor-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+      
+      .advisor-photo {
+        width: 180px;
+        height: 220px;
+        margin: 0 auto;
+      }
+      
+      .contact-grid {
+        text-align: left;
+      }
+      
+      .contact-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+      
+      .section-block {
+        padding: 24px 20px;
+      }
+      
+      .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      
+      .award-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body data-page="advisor">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+        <a href="index.html" aria-label="Go to home"> SCALE Lab</a>
+      </div>
+      
+      <nav>
+        <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
+        <ul id="menu">
+          <li><a data-page="research" href="research.html">Research</a></li>
+          <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
+          <li><a data-page="publication" href="publication.html">Publication</a></li>
+          <li><a data-page="people" href="people.html">People</a></li>
+          <li><a data-page="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+<section class="section">
+  <div class="container">
+    <h2>Advisor</h2>
+    
+    <!-- Hero Section -->
+    <div class="advisor-hero">
+      <div class="advisor-photo">
+        <img src="assets/images/prof.jpg" alt="Prof. Po-Tsang Huang" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<div>Photo<br>Coming Soon</div>';">
+      </div>
+      <div class="advisor-details">
+        <h1>黃 柏 蒼 Po-Tsang Huang<br><span style="font-size: 1.1rem; color: var(--muted); font-weight: 400;">(Bug Huang)</span></h1>
+        <div class="title">Assistant Professor</div>
+        <div class="institution">
+          International College of Semiconductor Technology (ICST)<br>
+          National Chiao Tung University
+        </div>
+        
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span class="contact-label">Office</span>
+            <span class="contact-value">Room 301, MIRC, 1001 University Road, Hsinchu, Taiwan</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+886-3-5712121 ext. 59438</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">bughuang@nctu.edu.tw</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="col-6">
+        <!-- Education Section -->
+        <div class="section-block">
+          <h3 class="section-header">Education</h3>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Ph.D. Degree</span>
+                <span class="item-period">2004/02–2010/11</span>
+              </div>
+              <div class="item-description">Department of Electronics Engineering, National Chiao Tung University</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">M.S. Degree</span>
+                <span class="item-period">2002/09–2004/02</span>
+              </div>
+              <div class="item-description">Department of Electronics Engineering, National Chiao Tung University</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">B.S. Degree</span>
+                <span class="item-period">1997/09–2002/06</span>
+              </div>
+              <div class="item-description">Department of Electronics Engineering, National Chiao Tung University</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="section-block">
+          <h3 class="section-header">Work Experience</h3>
+          <div class="item-list">
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Assistant Professor</span>
+                <span class="item-period">2017.02 ~ now</span>
+              </div>
+              <div class="item-description">International College of Semiconductor Technology (ICST), NCTU</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Visiting Postdoctoral Scholar</span>
+                <span class="item-period">2014.11~2016.11</span>
+              </div>
+              <div class="item-description">Electrical Engineering Department, UCLA</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Associate Research Fellow</span>
+                <span class="item-period">2015.10~2017.01</span>
+              </div>
+              <div class="item-description">Department of Electrical and Computer Engineering, NCTU</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Assistant Research Fellow</span>
+                <span class="item-period">2014.01~2015.10</span>
+              </div>
+              <div class="item-description">Department of Electrical and Computer Engineering, NCTU</div>
+            </div>
+            <div class="list-item">
+              <div class="item-header">
+                <span class="item-title">Assistant Research Fellow</span>
+                <span class="item-period">2011.01~2013.12</span>
+              </div>
+              <div class="item-description">Department of Electronics Engineering, NCTU</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-6">
+        <!-- Research Interests Section -->
+        <div class="section-block">
+          <h3 class="section-header">Research Interests</h3>
+          <div class="research-grid">
+            <div class="research-item">Acceleration design for AI and machine learning applications</div>
+            <div class="research-item">3D-IC design (Monolithic 3D-IC & TSV 3D-IC)</div>
+            <div class="research-item">Energy-Efficient digital IC (VLSI) design</div>
+            <div class="research-item">Low-power embedded memory design (Latch, SRAM, Register-File, FIFO, CAM/TCAM)</div>
+            <div class="research-item">Computation-in-memory circuits and architecture</div>
+            <div class="research-item">Memory sub-system for heterogeneous multi-core SoC/SiP</div>
+            <div class="research-item">Ultra-low voltage IC design for IoT and biomedical applications</div>
+            <div class="research-item">Accelerator-rich and memory-rich computer architectures for domain-specific computing</div>
+            <div class="research-item">Compression techniques of memory accesses for mmWave wireless communications and Radar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards Section (Full Width) -->
+    <div class="section-block">
+      <h3 class="section-header">Honors & Awards</h3>
+      <div class="awards-list">
+        <div class="award-item">
+          <div class="award-title">Macronix Outstanding Chair Professor</div>
+          <div class="award-year">2021-2023</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">陽明交通大學醫學系教學優良教師</div>
+          <div class="award-year">2021</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">陽明交通大學優良教學獎</div>
+          <div class="award-year">2021</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">陽明交通大學績優導師</div>
+          <div class="award-year">2021</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Excellent Young Researcher Project Award, Ministry of Science and Technology (MOST), Taiwan</div>
+          <div class="award-year">2020-2023</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Future Technology Award, Ministry of Science and Technology (MOST), Taiwan</div>
+          <div class="award-year">Dec. 2019</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">TSIA Young Researcher Award, Taiwan Semiconductor Industry Association (TSIA)</div>
+          <div class="award-year">2016</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Outstanding Chip Design Award, National Chip Implementation Center (CIC), Taiwan</div>
+          <div class="award-year">2014</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Best Integrated research Project Award, National Science Council (NSC), Taiwan</div>
+          <div class="award-year">2010</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">High Achievement of 2010 Ph.D. Dissertation, Institute of Electronics, NCTU</div>
+          <div class="award-year">2010</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Ph.D. Teaching Assistant Scholarship, National Chiao Tung University (NCTU)</div>
+          <div class="award-year">2009</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Outstanding Oral Paper Award, Electronics Technology Symposium (ETS)</div>
+          <div class="award-year">2009</div>
+        </div>
+        <div class="award-item">
+          <div class="award-title">Student Outstanding Research Award, MOEA/DoIT</div>
+          <div class="award-year">2005</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <div class="container" style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--muted);">
+      © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab.
+    </div>
+  </footer>
+  <script src="assets/script.js"></script>
+</body>
+</html>

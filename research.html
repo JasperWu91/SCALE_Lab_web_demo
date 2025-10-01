@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research · EECS Lab</title>
+  <meta name="description" content="EECS Lab website" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .research-vision {
+      margin-bottom: 48px;
+      padding: 32px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .research-vision h3 {
+      margin: 0 0 16px;
+      color: var(--primary);
+      font-size: 1.3rem;
+    }
+    
+    .research-vision p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+    
+    .research-area {
+      margin-bottom: 40px;
+    }
+    
+    .area-header {
+      background: linear-gradient(135deg, var(--primary-weak), var(--card));
+      padding: 24px 32px;
+      border-radius: 12px 12px 0 0;
+      border: 1px solid var(--border);
+      border-bottom: none;
+    }
+    
+    .area-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+      line-height: 1.3;
+    }
+    
+    .area-subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin: 8px 0 0;
+    }
+    
+    .area-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0 0 12px 12px;
+      padding: 32px;
+    }
+    
+    .research-list {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .research-item {
+      padding: 16px 20px;
+      background: var(--bg);
+      border-radius: 8px;
+      border-left: 3px solid var(--primary);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    
+    .research-item:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow);
+    }
+    
+    .research-item-title {
+      font-weight: 600;
+      color: var(--fg);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    
+    .research-sublist {
+      margin: 12px 0 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .research-sublist li {
+      margin-bottom: 8px;
+      padding-left: 16px;
+      position: relative;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .research-sublist li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 880px) {
+      .research-vision {
+        padding: 24px 20px;
+      }
+      
+      .area-header {
+        padding: 20px 24px;
+      }
+      
+      .area-content {
+        padding: 24px 20px;
+      }
+      
+      .research-item {
+        padding: 14px 16px;
+      }
+    }
+  </style>
+</head>
+<body data-page="research">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+        <a href="index.html" aria-label="Go to home">SCALE Lab</a>
+      </div>
+      
+      <nav>
+        <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
+        <ul id="menu">
+          <li><a data-page="research" href="research.html">Research</a></li>
+          <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
+          <li><a data-page="publication" href="publication.html">Publication</a></li>
+          <li><a data-page="people" href="people.html">People</a></li>
+          <li><a data-page="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+<section class="section">
+  <div class="container">
+    <h2>Research Interests</h2>
+    
+    <!-- Research Vision -->
+    <div class="research-vision">
+      <h3>Research Goal</h3>
+      <p>Our major research goal for the next decade is to explore pioneering "sustainable circuits and systems", focusing on carbon-aware system-design-technology co-optimization, carbon-aware computing, energy-efficient design techniques and methodologies of system integration for both power-limited and energy-limited applications. Our research spans across multiple levels of design abstraction from solid-state circuits, architectures and systems.</p>
+    </div>
+    
+    <!-- Research Area 1 -->
+    <div class="research-area">
+      <div class="area-header">
+        <h3 class="area-title">SoC/SiP Architecture/Platform</h3>
+        <div class="area-subtitle">for IoT, AI & Communication Applications</div>
+      </div>
+      <div class="area-content">
+        <ul class="research-list">
+          <li class="research-item">
+            <div class="research-item-title">Carbon-aware system-design-technology co-optimization</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Accelerator design for neural networks using 3D-SRAM or 3D-DRAM</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Hierarchical configurable interconnect with 3D-SRAM for memory-centric computing</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Fault-tolerant 3D-DRAM controller</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Memory sub-system for heterogeneous multi-core SoC/SiP</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Accelerator-rich and memory-rich computer architectures for domain-specific computing</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">System-level power analysis and noise reduction in HPC/3DIC</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Accelerator/reconfigurable architecture for SDR or resilient wireless network</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Research Area 2 -->
+    <div class="research-area">
+      <div class="area-header">
+        <h3 class="area-title">Circuit/Technology Co-Design</h3>
+        <div class="area-subtitle">using Monolithic/TSV 3DIC, Emerging Memory & Devices</div>
+      </div>
+      <div class="area-content">
+        <ul class="research-list">
+          <li class="research-item">
+            <div class="research-item-title">Low-power high-density embedded memory design and diagnosis methodology</div>
+            <ul class="research-sublist">
+              <li>SRAM</li>
+              <li>Register-File</li>
+              <li>FIFO</li>
+              <li>CAM/TCAM</li>
+            </ul>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Computation-in-memory or in-memory searching engine for neural networks</div>
+            <ul class="research-sublist">
+              <li>SRAM</li>
+              <li>ReRAM</li>
+              <li>FeFET</li>
+              <li>FeRAM</li>
+            </ul>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Fault/Age-Aware Memory Design</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Energy-Efficient digital IC (VLSI) design using emerging memory & devices</div>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Power management and data communications for 3D-IC</div>
+            <ul class="research-sublist">
+              <li>M3D (Monolithic 3D)</li>
+              <li>TSV 3D-IC</li>
+            </ul>
+          </li>
+          <li class="research-item">
+            <div class="research-item-title">Ultra-low voltage IC design for IoT and biomedical applications</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer>
+    <div class="container" style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--muted);">
+      © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab.
+    </div>
+  </footer>
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>People · SCALE Lab</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* Enhanced people card design */
+    .people-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .people-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .person-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+    
+    .person-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #374151;
+      margin: 0;
+      line-height: 1.2;
+      flex: 1;
+    }
+    
+    .person-name .english-name {
+      color: #6b7280;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .person-year {
+      color: #6b7280;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      margin: 0;
+    }
+    
+    .person-info {
+      margin-bottom: 6px;
+      font-size: 0.75rem;
+      line-height: 1.4;
+    }
+    
+    .info-label {
+      font-weight: 600;
+      color: #374151;
+      display: inline;
+    }
+    
+    .info-value {
+      color: #6b7280;
+      display: inline;
+      margin-left: 4px;
+    }
+    
+    .person-email {
+      color: #374151;
+      text-decoration: none;
+      margin-left: 4px;
+    }
+    
+    .person-email:hover {
+      text-decoration: underline;
+    }
+    
+    .person-about {
+      color: #4b5563;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      margin: 8px 0;
+      flex-grow: 1;
+    }
+    
+    .person-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin-top: 6px;
+    }
+    
+    .person-tag {
+      padding: 2px 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+    
+    .person-company {
+      padding: 2px 6px;
+      background: var(--primary-weak);
+      border: 1px solid var(--primary);
+      border-radius: 3px;
+      font-size: 0.65rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    /* Section styling */
+    .people-section {
+      margin-bottom: 48px;
+    }
+    
+    .section-header {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--fg);
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .section-count {
+      background: var(--primary);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    /* Grid adjustments for enhanced layout */
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    /* Controls styling */
+    .people-controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 24px;
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    
+    .people-controls .input {
+      min-width: 250px;
+    }
+    
+    /* Stats */
+    .people-stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: var(--bg);
+    }
+    
+    .stat-count {
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    /* Empty state */
+    .empty-section {
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      padding: 32px;
+      background: var(--card);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 880px) {
+      .people-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      
+      .people-card {
+        padding: 16px;
+      }
+      
+      .people-controls {
+        padding: 16px;
+      }
+      
+      .people-controls .input {
+        min-width: 200px;
+      }
+      
+      .section-header {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .people-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+      }
+      
+      .people-card {
+        padding: 14px;
+      }
+      
+      .person-name {
+        font-size: 1rem;
+      }
+      
+      .person-about {
+        font-size: 0.8rem;
+      }
+      
+      .people-stats {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .people-controls .input {
+        min-width: 160px;
+      }
+    }
+  </style>
+</head>
+<body id="top" data-page="people">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+        <a href="index.html" aria-label="Go to home">SCALE Lab</a>
+      </div>
+      
+      <nav>
+        <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
+        <ul id="menu">
+          <li><a data-page="research" href="research.html">Research</a></li>
+          <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
+          <li><a data-page="publication" href="publication.html">Publication</a></li>
+          <li><a data-page="people" href="people.html">People</a></li>
+          <li><a data-page="contact" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+<section class="section">
+  <div class="container">
+    <h2>People</h2>
+    <p class="lead">Our research team members and their career destinations.</p>
+    
+    <!-- People Statistics -->
+    <div id="peopleStats" class="people-stats">
+      <div class="stat-item">
+        <span class="stat-count" id="totalCount">-</span>
+        <span class="stat-label">Total Members</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" id="phdCount">-</span>
+        <span class="stat-label">Ph.D.</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" id="msCount">-</span>
+        <span class="stat-label">M.S.</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-count" id="alumniCount">-</span>
+        <span class="stat-label">Alumni</span>
+      </div>
+    </div>
+    
+    <!-- Search Controls -->
+    <div class="people-controls">
+      <input id="peopleSearch" class="input" placeholder="Search name, topic, or company..." />
+    </div>
+    
+    <!-- PhD Students Section -->
+    <div class="people-section" id="phdSection">
+      <h3 class="section-header">
+        Ph.D. Students
+        <span class="section-count" id="phdSectionCount">0</span>
+      </h3>
+      <div class="people-grid" id="phdList">
+        <div class="empty-section">Loading Ph.D. student data...</div>
+      </div>
+    </div>
+    
+    <!-- MS Students Section -->
+    <div class="people-section" id="msSection">
+      <h3 class="section-header">
+        M.S. Students
+        <span class="section-count" id="msSectionCount">0</span>
+      </h3>
+      <div class="people-grid" id="msList">
+        <div class="empty-section">Loading M.S. student data...</div>
+      </div>
+    </div>
+    
+    <!-- Alumni Section -->
+    <div class="people-section" id="alumniSection">
+      <h3 class="section-header">
+        Alumni
+        <span class="section-count" id="alumniSectionCount">0</span>
+      </h3>
+      <div class="people-grid" id="alumniList">
+        <div class="empty-section">Loading alumni data...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Mobile menu toggle
+const menuBtn = document.getElementById('menuBtn');
+const menu = document.getElementById('menu');
+menuBtn?.addEventListener('click', () => menu.classList.toggle('open'));
+
+// Active nav by data-page
+const page = document.body.dataset.page;
+if (page) {
+  const link = document.querySelector(`nav a[data-page="${page}"]`);
+  link?.classList.add('active');
+}
+
+let peopleCache = [];
+
+function fixEncoding(text) {
+  if (typeof text !== 'string') return text;
+  return text
+    .replace(/Ã¢â‚¬'/g, '-')
+    .replace(/Ã¢â‚¬"/g, '—')
+    .replace(/Ã‚Â·/g, '·')
+    .replace(/Ã¢â‚¬Â¦/g, '…');
+}
+
+function updateStatistics() {
+  const stats = {
+    total: peopleCache.filter(p => ['phd', 'ms', 'alumni'].includes(p.role)).length,
+    phd: peopleCache.filter(p => p.role === 'phd').length,
+    ms: peopleCache.filter(p => p.role === 'ms').length,
+    alumni: peopleCache.filter(p => p.role === 'alumni').length
+  };
+  
+  document.getElementById('totalCount').textContent = stats.total;
+  document.getElementById('phdCount').textContent = stats.phd;
+  document.getElementById('msCount').textContent = stats.ms;
+  document.getElementById('alumniCount').textContent = stats.alumni;
+}
+
+function getRoleBadgeText(role) {
+  switch(role) {
+    case 'phd': return 'Ph.D. Student';
+    case 'ms': return 'M.S. Student';
+    case 'alumni': return 'Alumni';
+    case 'faculty': return 'Faculty';
+    default: return 'Member';
+  }
+}
+
+function renderPersonCard(person) {
+  const hasChineseName = person.name.includes('陳冠霖') || /[\u4e00-\u9fff]/.test(person.name);
+  let nameDisplay = fixEncoding(person.name);
+  
+  if (hasChineseName && person.name.includes('Brian Chen')) {
+    nameDisplay = `陳冠霖 <span class="english-name">Brian Chen</span>`;
+  }
+  
+  return `
+    <div class="people-card">
+      <div class="person-header">
+        <h3 class="person-name">${nameDisplay}</h3>
+        ${person.year ? `<div class="person-year">${fixEncoding(person.year)}</div>` : ''}
+      </div>
+      
+      ${person.institute ? `
+        <div class="person-info">
+          <span class="info-label">Institute:</span><span class="info-value">${fixEncoding(person.institute)}</span>
+        </div>
+      ` : ''}
+      
+      ${person.email ? `
+        <div class="person-info">
+          <span class="info-label">Email:</span><a href="mailto:${person.email}" class="person-email">${person.email}</a>
+        </div>
+      ` : ''}
+      
+      <div class="person-about">${fixEncoding(person.about || '')}</div>
+      
+      <div class="person-tags">
+        ${(person.tags || []).map(t => `<span class="person-tag">${fixEncoding(t)}</span>`).join('')}
+        ${person.company ? `<span class="person-company">${fixEncoding(person.company)}</span>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderPeopleByRole() {
+  const searchKey = document.getElementById('peopleSearch').value.toLowerCase();
+  
+  const roles = ['phd', 'ms', 'alumni'];
+  
+  roles.forEach(role => {
+    const people = peopleCache.filter(p => p.role === role);
+    
+    // Filter by search key
+    const filteredPeople = people.filter(p => {
+      if (!searchKey) return true;
+      return p.name.toLowerCase().includes(searchKey) || 
+             (p.about || '').toLowerCase().includes(searchKey) || 
+             (p.company || '').toLowerCase().includes(searchKey) ||
+             (p.institute || '').toLowerCase().includes(searchKey) ||
+             (p.email || '').toLowerCase().includes(searchKey) ||
+             (p.tags || []).join(' ').toLowerCase().includes(searchKey);
+    });
+    
+    const container = document.getElementById(`${role}List`);
+    const countElement = document.getElementById(`${role}SectionCount`);
+    const sectionElement = document.getElementById(`${role}Section`);
+    
+    if (filteredPeople.length === 0) {
+      container.innerHTML = '<div class="empty-section">No members found in this category.</div>';
+      countElement.textContent = '0';
+      if (!searchKey) {
+        // Hide section if no search and no people
+        sectionElement.style.display = people.length === 0 ? 'none' : 'block';
+      } else {
+        sectionElement.style.display = 'block';
+      }
+    } else {
+      container.innerHTML = filteredPeople.map(renderPersonCard).join('');
+      countElement.textContent = filteredPeople.length;
+      sectionElement.style.display = 'block';
+    }
+  });
+}
+
+async function loadSiteData() {
+  try {
+    console.log('Trying to fetch assets/site-data.json...');
+    const res = await fetch('assets/site-data.json', {cache: 'no-store'});
+    if (res.ok) {
+      const data = await res.json();
+      console.log('Successfully loaded site-data.json');
+      return data;
+    }
+    throw new Error(`HTTP ${res.status}`);
+  } catch (err) {
+    console.warn('Failed to load external JSON, using fallback data:', err);
+
+    return {
+      "people": [
+        {
+          "name": "Prof. Po-Tsang Huang",
+          "role": "faculty",
+          "about": "PI — Sustainable Circuits & Systems, 3D-IC Design, Energy-Efficient VLSI, Memory-Centric Computing.",
+          "company": "NCTU/NYCU",
+          "institute": "International College of Semiconductor Technology (ICST)",
+          "email": "bughuang@nctu.edu.tw",
+          "tags": ["PI", "Advisor"]
+        },
+        {
+          "name": "Dr. Ada Wang",
+          "role": "faculty",
+          "about": "Co-PI — Emerging Memories, 3D-IC power delivery.",
+          "company": "NCTU/NYCU",
+          "institute": "International College of Semiconductor Technology (ICST)",
+          "email": "adawang@nctu.edu.tw",
+          "tags": ["Co-PI", "3D-IC"]
+        },
+        {
+          "name": "Chen, Yu-Ting",
+          "role": "phd",
+          "about": "Carbon-intensity-aware scheduling for accelerator clusters.",
+          "year": "2022/09 - 2025 (expected)",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "email": "yutin.cs10@nycu.edu.tw",
+          "tags": ["carbon-aware", "scheduling"]
+        },
+        {
+          "name": "Lin, Bo-Han",
+          "role": "phd",
+          "about": "3D-SRAM compute-near-memory for CNN inference.",
+          "year": "2021/09 - 2026 (expected)",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "email": "bohan.cs09@nycu.edu.tw",
+          "tags": ["3D-SRAM", "CIM"]
+        },
+        {
+          "name": "陳冠霖 Brian Chen",
+          "role": "ms",
+          "about": "Machine learning accelerator design with emerging memory technologies.",
+          "year": "2024/09 - now",
+          "institute": "Institute of Multimedia Engineering, NYCU",
+          "email": "brian.cs13@nycu.edu.tw",
+          "tags": ["ML-accelerator", "emerging-memory"]
+        },
+        {
+          "name": "Lee, Jun-Peng",
+          "role": "ms",
+          "about": "LUT-NN quantization & compiler flow.",
+          "year": "2023/09 - 2024 (expected)",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "email": "junpeng.cs12@nycu.edu.tw",
+          "tags": ["LUT-NN", "QAT"]
+        },
+        {
+          "name": "Wu, Cindy",
+          "role": "ms",
+          "about": "Fault-tolerant DRAM controller for TSV 3D.",
+          "year": "2023/09 - 2024 (expected)",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "email": "cindy.cs12@nycu.edu.tw",
+          "tags": ["DRAM", "fault-tolerant"]
+        },
+        {
+          "name": "Huang, I-Chun",
+          "role": "alumni",
+          "about": "M.S. 2020 — ASIC design and verification for memory controllers.",
+          "year": "2018/09 - 2020/06",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "company": "MediaTek (Design Engineer)",
+          "tags": ["ASIC", "industry"]
+        },
+        {
+          "name": "Chen, Mei-Lin",
+          "role": "alumni",
+          "about": "M.S. 2019 — 3D-SRAM design for neural network accelerators.",
+          "year": "2017/09 - 2019/06",
+          "institute": "Institute of Computer Science and Engineering, NYCU",
+          "company": "Stanford University (Ph.D. Student)",
+          "tags": ["PhD", "Systems"]
+        }
+      ]
+    };
+  }
+}
+
+function initializePage() {
+  // Event listeners
+  document.getElementById('peopleSearch').addEventListener('input', renderPeopleByRole);
+
+  // Load data
+  loadSiteData()
+    .then(data => {
+      console.log('Data loaded:', data);
+      peopleCache = data.people || [];
+      console.log('People cache:', peopleCache);
+      updateStatistics();
+      renderPeopleByRole();
+    })
+    .catch(err => {
+      console.error('Failed to load data:', err);
+      ['phdList', 'msList', 'alumniList'].forEach(id => {
+        document.getElementById(id).innerHTML = 
+          '<div class="empty-section">Failed to load people data. Please check console for details.</div>';
+      });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializePage);
+
+// Footer year
+const yearElement = document.getElementById('yearNow');
+if (yearElement) yearElement.textContent = new Date().getFullYear();
+</script>
+
+  <footer>
+    <div class="container footgrid">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="dot"></span><strong>Sustainable Circuits and Architectures for Layered Eco-chips Lab</strong></div>
+        <div class="muted">© <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab. All rights reserved.</div>
+      </div>
+      <div class="right"><a class="chip" href="#top">→ Back to Top</a></div>
+    </div>
+  </footer>
+</body>
+</html>

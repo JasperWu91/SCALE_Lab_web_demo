@@ -1,0 +1,23 @@
+<svg width="388" height="267" viewBox="0 0 388 267" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="388" height="267" fill="white"/>
+<g opacity="0.6">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M47.8048 121.589C33.211 181.757 82.9431 207.974 108.284 210.026L114.7 214.52L126.416 225.103L132.03 225.28C131.538 223.934 132.221 220.227 128.582 219.961C128.582 219.961 125.88 217.433 124.206 215.996C119.718 212.145 118.153 207.896 120.035 191.198C147.249 117.516 87.5692 86.6591 55.6746 76.2124C51.4509 91.8024 53.3268 98.8233 47.8048 121.589Z" fill="#99E58F"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M107.769 208.714C98.8947 198.853 81.7117 176.959 83.972 168.269C72.6329 162.61 67.4955 153.559 66.3442 149.741L79.4981 158.953C78.0612 142.569 74.4795 108.354 71.6474 102.566C83.1972 110.655 87.8048 145.271 88.6648 161.568C92.6283 153.405 100.841 135.852 101.982 130.945C103.887 141.581 95.8086 159.783 93.0593 165.978C92.2946 167.701 91.9421 168.496 92.3312 167.94C92.3246 178.874 106.514 206.409 123.925 214.322C132.395 220.253 132.725 224.289 131.831 225.565L126.417 225.103L107.769 208.714Z" fill="#2D7B5D"/>
+</g>
+<rect x="-2.38419e-07" y="4" width="144.248" height="144.248" rx="12" transform="matrix(0.866025 0.5 -0.866025 0.5 206.315 95)" fill="#13573E" stroke="white" stroke-width="8"/>
+<rect x="-2.38419e-07" y="4" width="144.248" height="144.248" rx="12" transform="matrix(0.866025 0.5 -0.866025 0.5 206.315 60)" fill="#13573E" stroke="white" stroke-width="8"/>
+<rect x="-2.38419e-07" y="4" width="144.248" height="144.248" rx="12" transform="matrix(0.866025 0.5 -0.866025 0.5 208.315 25)" fill="#13573E" stroke="white" stroke-width="8"/>
+<line x1="124.5" y1="127" x2="124.5" y2="161" stroke="white" stroke-width="5"/>
+<line x1="135.5" y1="170" x2="135.5" y2="221" stroke="white" stroke-width="5"/>
+<line x1="171" y1="187" x2="171" y2="152" stroke="white" stroke-width="6"/>
+<line x1="179" y1="252.009" x2="179" y2="194" stroke="white" stroke-width="6"/>
+<line x1="263" y1="232.959" x2="264" y2="171.951" stroke="white" stroke-width="6"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 216 134)" fill="white"/>
+<rect width="20" height="20" transform="matrix(0.866025 -0.5 0.866025 0.5 238 164)" fill="white"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 234 122)" fill="white"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 252 111)" fill="white"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 174 133)" fill="white"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 155 121)" fill="white"/>
+<rect width="12" height="12" transform="matrix(0.866025 -0.5 0.866025 0.5 137 110)" fill="white"/>
+<rect width="58.9934" height="58.9934" transform="matrix(0.866025 -0.5 0.866025 0.5 153 98.4966)" fill="white"/>
+</svg>

@@ -1,0 +1,392 @@
+{
+  "meta": {
+    "updated": "2025-09-18",
+    "admin_hint": "Edit via admin.html; upload to /assets/site-data.json"
+  },
+  "research": {
+    "vision": "Pioneering sustainable circuits and systems: carbon-aware co-optimization, carbon-aware computing, and energy-efficient methodologies for power- and energy-limited applications spanning solid-state circuits, architectures, and systems.",
+    "thrusts": [
+      {
+        "key": "system",
+        "title": "System / Architecture & Platform",
+        "bullets": [
+          "SoC/SiP architectures and platforms for IoT, AI, and communication applications",
+          "Carbon-aware system—design—technology co-optimization",
+          "Neural-network accelerators using 3D-SRAM or 3D-DRAM",
+          "Hierarchical configurable interconnect with 3D-SRAM for memory-centric computing",
+          "Fault-tolerant 3D-DRAM controllers",
+          "Memory subsystems for heterogeneous multi-core SoC/SiP",
+          "Accelerator-rich and memory-rich architectures for domain-specific computing",
+          "System-level power analysis and noise reduction in HPC/3DIC",
+          "Accelerator/reconfigurable architectures for SDR and resilient wireless networks"
+        ],
+        "tags": [
+          "carbon-aware",
+          "SoC/SiP",
+          "3D-DRAM",
+          "memory-centric",
+          "HPC",
+          "wireless"
+        ]
+      },
+      {
+        "key": "circuit",
+        "title": "Circuit / Technology Co-Design",
+        "bullets": [
+          "Circuit/technology co-design using monolithic/TSV 3DIC and emerging memories/devices",
+          "Low-power, high-density embedded memories and diagnosis (SRAM, RF, FIFO, CAM/TCAM)",
+          "Computation-in-memory and in-memory search for neural networks (SRAM, ReRAM, FeFET, FeRAM)",
+          "Fault/Age-aware memory design",
+          "Energy-efficient digital VLSI using emerging memories/devices",
+          "Power management and data communication for 3D-IC (M3D & TSV 3D-IC)",
+          "Ultra-low-voltage IC design for IoT and biomedical applications"
+        ],
+        "tags": [
+          "3DIC",
+          "CIM",
+          "ReRAM",
+          "FeFET",
+          "ULV",
+          "power management"
+        ]
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Prof. Po-Tsang Huang",
+      "role": "faculty",
+      "about": "PI — Sustainable Circuits & Systems, 3D-IC Design, Energy-Efficient VLSI, Memory-Centric Computing.",
+      "company": "NCTU/NYCU",
+      "institute": "International College of Semiconductor Technology (ICST)",
+      "email": "bughuang@nctu.edu.tw",
+      "tags": ["PI", "Advisor"]
+    },
+    {
+      "name": "Dr. Ada Wang",
+      "role": "faculty", 
+      "about": "Co-PI — Emerging Memories, 3D-IC power delivery.",
+      "company": "NCTU/NYCU",
+      "institute": "International College of Semiconductor Technology (ICST)",
+      "email": "adawang@nctu.edu.tw",
+      "tags": ["Co-PI", "3D-IC"]
+    },
+    {
+      "name": "Chen, Yu-Ting",
+      "role": "phd",
+      "about": "Carbon-intensity-aware scheduling for accelerator clusters.",
+      "year": "2022/09 - 2025 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "yutin.cs10@nycu.edu.tw",
+      "tags": ["carbon-aware", "scheduling"]
+    },
+    {
+      "name": "Lin, Bo-Han", 
+      "role": "phd",
+      "about": "3D-SRAM compute-near-memory for CNN inference.",
+      "year": "2021/09 - 2026 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "bohan.cs09@nycu.edu.tw",
+      "tags": ["3D-SRAM", "CIM"]
+    },
+    {
+      "name": "Wang, Li-Ming",
+      "role": "phd",
+      "about": "Energy-efficient ReRAM-based accelerators for AI workloads.",
+      "year": "2022/09 - 2025 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "liming.cs10@nycu.edu.tw",
+      "tags": ["ReRAM", "AI-accelerator"]
+    },
+    {
+      "name": "吳承祐 Jasper ",
+      "role": "ms",
+      "about": "Machine learning accelerator design with emerging memory technologies.",
+      "year": "2024/09 - now",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "swing.cs13@nycu.edu.tw",
+      "tags": ["ML-accelerator", "emerging-memory"]
+    },
+    {
+      "name": "Lee, Jun-Peng",
+      "role": "ms",
+      "about": "LUT-NN quantization & compiler flow.",
+      "year": "2023/09 - 2024 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "junpeng.cs12@nycu.edu.tw",
+      "tags": ["LUT-NN", "QAT"]
+    },
+    {
+      "name": "Wu, Cindy",
+      "role": "ms",
+      "about": "Fault-tolerant DRAM controller for TSV 3D.",
+      "year": "2023/09 - 2024 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "cindy.cs12@nycu.edu.tw",
+      "tags": ["DRAM", "fault-tolerant"]
+    },
+    {
+      "name": "Zhang, Wei-Chen",
+      "role": "ms", 
+      "about": "Monolithic 3D power delivery network design.",
+      "year": "2024/09 - 2025 (expected)",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "email": "weichen.cs13@nycu.edu.tw",
+      "tags": ["3D-IC", "power-delivery"]
+    },
+    {
+      "name": "Huang, I-Chun",
+      "role": "alumni",
+      "about": "M.S. 2020 — ASIC design and verification for memory controllers.",
+      "year": "2018/09 - 2020/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "MediaTek (Design Engineer)",
+      "tags": ["ASIC", "industry"]
+    },
+    {
+      "name": "Chen, Mei-Lin",
+      "role": "alumni",
+      "about": "M.S. 2019 — 3D-SRAM design for neural network accelerators.",
+      "year": "2017/09 - 2019/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "Stanford University (Ph.D. Student)", 
+      "tags": ["PhD", "Systems"]
+    },
+    {
+      "name": "Wu, Tsung-Han",
+      "role": "alumni",
+      "about": "Ph.D. 2021 — Energy-efficient memory design for IoT applications.",
+      "year": "2016/09 - 2021/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "Apple (Senior Design Engineer)",
+      "tags": ["industry", "memory-design"]
+    },
+    {
+      "name": "Lin, Shao-Yu",
+      "role": "alumni",
+      "about": "M.S. 2020 — TSV 3D-IC power management and thermal control.",
+      "year": "2018/09 - 2020/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "TSMC (Process Engineer)",
+      "tags": ["industry", "3D-IC"]
+    },
+    {
+      "name": "Chang, Wei-Ting",
+      "role": "alumni",
+      "about": "M.S. 2018 — Low-power SRAM design with advanced power gating.",
+      "year": "2016/09 - 2018/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "Cadence (R&D Engineer)",
+      "tags": ["industry", "EDA"]
+    },
+    {
+      "name": "Lee, Ming-Hsuan",
+      "role": "alumni",
+      "about": "Ph.D. 2020 — Computation-in-memory architectures for AI applications.",
+      "year": "2015/09 - 2020/06",
+      "institute": "Institute of Computer Science and Engineering, NYCU",
+      "company": "UC Berkeley (Postdoc Researcher)",
+      "tags": ["academia", "CIM"]
+    }
+  ],
+  "publications": {
+    "journal": [
+      {
+        "year": 2022,
+        "title": "Bending Resistant Multi-bit Memristor for Flexible Precision Inference Engine Application",
+        "authors": "P. Pal; K.-J. Lee; S. Thunder; S. De; P.-T. Huang; Y.-H. Wang",
+        "venue": "IEEE Transactions on Electron Devices",
+        "volume": "Vol. 69, No. 8"
+      },
+      {
+        "year": 2022,
+        "title": "Digi-FH-OFDM: An All-Digital Wideband Frequency-hopped OFDM System",
+        "authors": "A. S. Bora; T. H. Singh; P.-T. Huang",
+        "venue": "Physical Communication (PHYCOM)",
+        "volume": "Vol. 52"
+      },
+      {
+        "year": 2021,
+        "title": "An Energy-Efficient 3D Cross-Ring Accelerator with 3D-SRAM Cubes for Hybrid Deep Neural Networks",
+        "authors": "W. Lu; P.-T. Huang; H.-M. Chen; W. Hwang",
+        "venue": "IEEE Journal on Emerging and Selected Topics in Circuits and Systems (JETCAS)",
+        "volume": "Vol. 11, No. 4, pp.776-788"
+      },
+      {
+        "year": 2021,
+        "title": "Single-crystal islands (SCI) for monolithic 3D and back-end-of-line FinFET circuits",
+        "authors": "Y.-W. Liu; H.-W. Hu; S.-J. Chang; K.-N. Chen; P-.Y. Hsieh; H.-T. Chung; J.-H. Liu; P.-T. Huang; C.-C. Yang; C.-H. Shen; J.-M. Shieh; C. Hu",
+        "venue": "IEEE Transactions on Electron Devices",
+        "volume": "Vol. 68, No. 10, pp. 5257-5262"
+      },
+      {
+        "year": 2021,
+        "title": "Design and Implementation for Deep Learning based Adjustable Beamforming Training for Millimeter Wave Communication Systems",
+        "authors": "L.-S. Shen; T.-W. Chang; K.-T. Feng; P.-T. Huang",
+        "venue": "IEEE Transactions on Vehicular Technology (TVT)",
+        "volume": "vol. 70, no. 3, pp. 2413-2427"
+      },
+      {
+        "year": 2021,
+        "title": "Energy-Efficient Accelerator Design with Tile-based row-independent compressed Memory for Sparse Compressed Convolutional Neural Networks",
+        "authors": "P.-T. Huang; I.-C. Wu; C.-Y. Wu; W. Hwang",
+        "venue": "IEEE Open Journal of Circuits and Systems",
+        "volume": "vol. 2, pp. 131-143"
+      },
+      {
+        "year": 2020,
+        "title": "3D On-Demand Flying Mobile Communication for Millimeter Wave Heterogeneous Networks",
+        "authors": "K.-T. Feng; L.-H. Shen; C.-Y. Li; P.-T. Huang; S.-Hs. Wu; L.-C. Wang; Y.-B. Lin; M.-C. F. Chang",
+        "venue": "IEEE Network",
+        "volume": "vol. 34, no. 5, pp. 198-204"
+      },
+      {
+        "year": 2019,
+        "title": "Built-In Self-Test/Repair Methodology for Multiband RF-Interconnected TSV 3D Integration",
+        "authors": "S.-F. Cheng; P.-T. Huang; L.-C. Wang; M.-C. F. Chang",
+        "venue": "IEEE Design & Test",
+        "volume": "Vol. 36, No. 6, pp. 63-71"
+      },
+      {
+        "year": 2017,
+        "title": "An Ultra-High-Density 256-Channel Neural Sensing Microsystem Using TSV-Embedded Neural Probes",
+        "authors": "Y.-C. Huang; P.-T. Huang; S.-L. Wu; Y.-C. Hu; Y.-H. You; J.-M. Chen; Y.-Y. Huang; H.-C. Chang; Y.-H. Lin; J.-R. Duann; T.-W. Chiu; W. Hwang; K.-N. Chen; C.-T. Chuang; J.-C. Chiou",
+        "venue": "IEEE Transactions on Biomedical Circuits and Systems",
+        "volume": "Vol. 11, No. 5, pp. 1013-1025"
+      },
+      {
+        "year": 2017,
+        "title": "A 0.5V 28nm 256kb Mini-Array Based 6T SRAM with Threshold Power-Gating, Low-Swing Global Read Bit-Line and Vtrip-Tracking Write-Assist",
+        "authors": "S.-L. Wu; K.-Y. Li; P.-T. Huang; W. Hwang; M.-H. Tu; S.-C. Lung; W.-S. Peng; H.-S. Huang; K.-D. Lee; Y.-S. Kao; C.-T. Chuang",
+        "venue": "IEEE Transactions on Circuits and Systems-I (TCAS-I)",
+        "volume": "Vol. 64, No. 7, pp. 1791-1802"
+      },
+      {
+        "year": 2017,
+        "title": "A 16 Gb/s 14.7 mW Tri-Band Cognitive Serial Link Transmitter with Forwarded Clock to Enable PAM-16 / 256-QAM and Channel Response Detection",
+        "authors": "Y. Du; W.-H. Cho; P.-T. Huang; Y. Li; C.-H. Wong; J. Du; Y. Kim; B. Hu; L. Du; S.-J. Lee; M.-C. F. Chang",
+        "venue": "IEEE Journal of Solid-State Circuits",
+        "volume": "Vol. 52, No. 4, pp. 1111-1122"
+      },
+      {
+        "year": 2011,
+        "title": "A 0.047fJ/Bit/Search 65nm 256x144 Energy-Efficient TCAM Macro for Network Routers",
+        "authors": "P.-T. Huang; W. Hwang",
+        "venue": "IEEE Journal of Solid-State Circuits",
+        "volume": "Vol. 46, No. 2, pp.507-519"
+      }
+    ],
+    "top_conference": [
+      {
+        "year": 2022,
+        "title": "Novel Opposite Polarity Cycling Recovery (OPCR) of HfZrO2 Antiferroelectric-RAM with an Access Scheme Toward Unlimited Endurance",
+        "authors": "K.-Y. Hsiang; Y.-C. Chen; F.-S. Chang; C.-Y. Lin; C.-Y. Liao; Z.-F. Lou; J.-Y. Lee; W.-C. Ray; Z.-X. Li; C.-C. Wang; H.-C. Tseng; P.-H. Chen; J.-H. Tsai; M. H. Liao; T.-H. Hou; C. W. Liu; P.-T. Huang; P. Su; M. H. Lee",
+        "venue": "IEEE International Electron Devices Meeting (IEDM)"
+      },
+      {
+        "year": 2022,
+        "title": "An Embedded Multi-Die Active Bridge (EMAB) Chip for Rapid-Prototype Programmable 2.5D/3D Packaging Technology",
+        "authors": "J. Zhang; W. Lu; P.-T. Huang; S.-H. Li; T.-Y. Hung; S.-H. Wu; M.-J. Dai; I-S. Chung; W.-C. Chen; C.-H. Wang; S.-S. Sheu; H.-M Chen; K.-N. Chen; W.-C. Lo; C.-I Wu",
+        "venue": "IEEE Symposium on VLSI Circuits"
+      },
+      {
+        "year": 2021,
+        "title": "Ge Single-Crystal-Island (Ge-SCI) Technique for BEOL FinFET Switch Arrays in Monolithic 3D Fully Integrated Voltage Regulators",
+        "authors": "H.-C. Chung; B-J. Shih; C.-C. Yang; N.-C. Lin; P.-T. Huang; Y.-P. Lan; K.-F. Lai; W.-T. Hsu; Y.-M. Pan; Z.-J. Hong; H.-W. Hu; H.-C. Cheng; C.-H. Shen; J.-M. Shieh; D.-C. Chang; W.-K. Yeh; C. Hu; K.-N. Chen",
+        "venue": "IEEE International Electron Devices Meeting (IEDM)"
+      },
+      {
+        "year": 2020,
+        "title": "Crystal-Orientation-Tolerant Voltage Regulator using Monolithic 3D BEOL FinFETs in Single-Crystal Islands for On-Chip Power Delivery Network",
+        "authors": "P.-T. Huang; Y.-W. Liu; K.-F. Lai; Y.-P. Lan; T.-H. Tsai; B.-J. Shih; P.-Y. Hsieh; C.-C. Yang; C.-H. Shen; J.-M. Shieh; D.-Chiang Chang; K.-N. Chen; W.-K. Yeh; C. Hu",
+        "venue": "IEEE International Electron Devices Meeting (IEDM)"
+      },
+      {
+        "year": 2019,
+        "title": "Monolithic 3D BEOL FinFET switch arrays using location-controlled-grain technique in voltage regulator with better FOM than 2D regulators",
+        "authors": "P.-Y. Hsieh; Y.-J. Chang; P.-J. Chen; C.-L. Chen; C.-C. Yang; P.-T. Huang; Y.-J. Chen; C.-M. Shen; Y.-W. Liu; C.-C. Huang; M.-C. Tai; W.-C. Lo; C.-H. Shen; J.-M. Shieh; D.-C. Chang; K.-N. Chen; W.-K. Yeh; C. Hu",
+        "venue": "IEEE International Electron Devices Meeting (IEDM)"
+      },
+      {
+        "year": 2018,
+        "title": "Location-controlled-grain technique for monolithic 3D BEOL FinFET Circuits",
+        "authors": "C.-C. Yang; T.-Y. Hsieh; P.-T. Huang; K.-N. Chen; W.-C. Wu; S.-W. Chen; C.-H. Chang; C.-H. Shen; J.-M. Shieh; C. Hu; M.-C. Wu; W.-K. Yeh",
+        "venue": "IEEE International Electron Devices Meeting (IEDM)"
+      },
+      {
+        "year": 2016,
+        "title": "A 16Gb/s 14.7mW Tri-Band Cognitive Transmitter with Forwarded-Clock to Enable PAM-16/256-QAM and Channel Response Detection in 28nm CMOS",
+        "authors": "Y. Du; W.-H. Cho; Y. Li; C.-H. Wong; J. Du; P.-T. Huang; Z.-Z. Chen; S.-J. Lee; M.-C. F. Chang",
+        "venue": "IEEE Symposium on VLSI Circuits"
+      },
+      {
+        "year": 2016,
+        "title": "A 38mW 40Gb/s 4-Lane Tri-Band 4-PAM /16-QAM Transceiver in 28nm CMOS for High-Speed Memory Interface",
+        "authors": "W.-H. Cho; Y. Li; Y. Du; C.-H. Wong; J. Du; P.-T. Huang; S.-J. Lee; H.-N. Chen; C.-P. Jou; F.-L. Hsueh; M.-C. F. Chang",
+        "venue": "IEEE International Solid-State Circuits Conference (ISSCC)"
+      },
+      {
+        "year": 2014,
+        "title": "2.5D Heterogeneously Integrated Bio-Sensing Microsystem for Multi-Channel Neural Sensing Applications",
+        "authors": "P.-T. Huang; L.-C. Chou; T.-C. Huang; S.-L. Wu; T.-S. Wang; Y.-R. Lin; C.-A. Cheng; W.-W. Shen; K.-N. Chen; J.-C. Chiou; C.-T. Chuang; W. Hwang; K.-H. Chen; C.-T. Chiu; M.-H. Cheng; Y.-L. Lin; H.-M. Tong",
+        "venue": "IEEE International Solid-State Circuits Conference (ISSCC)"
+      },
+      {
+        "year": 2013,
+        "title": "Through-Silicon-Via Based Double-Side Integrated Microsystem for Neural Sensing Applications",
+        "authors": "C.-W. Chang; P.-T. Huang; L.-C. Chou; S.-L. Wu; S.-W. Lee; C.-T. Chuang; K.-N. Chen; J.-C. Chiou; W. Hwang; Y.-C. Lee; C.-H. Wu; K.-H. Chen; C.-T. Chiu; H.-M. Tong",
+        "venue": "IEEE International Solid-State Circuits Conference (ISSCC)"
+      }
+    ],
+    "conference": [
+      {
+        "year": 2022,
+        "title": "Memory-Centric Fusion-based CNN Accelerator with 3D-NoC and 3D-DRAM",
+        "authors": "W. Lu; P.-Y. Ge; P.-T. Huang; H.-M. Chen; W. Hwang",
+        "venue": "IEEE International SoC Design Conference (ISoCC)"
+      },
+      {
+        "year": 2022,
+        "title": "Design Exploration of An Energy-Efficient Acceleration System for CNNs on Low-Cost Resource-Constraint SoC-FPGAs",
+        "authors": "S.-C. Wen; P.-T. Huang",
+        "venue": "IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)"
+      },
+      {
+        "year": 2021,
+        "title": "An Energy-Efficient Ring-Based CIM Accelerator using High-Linearity eNVM for Deep Neural Networks",
+        "authors": "P.-T. Huang; T.-W. Liu; W. Lu; Y.-H. Lin; W Hwang",
+        "venue": "IEEE International SoC Design Conference"
+      },
+      {
+        "year": 2020,
+        "title": "Hierarchical Active Voltage Regulation for Heterogeneous TSV 3D-ICs",
+        "authors": "P.-T. Huang; T.-H. Tsai; P.-J. Yang; W. Hwang; H.-M. Chen",
+        "venue": "IEEE International System-on-Chip Conference (SOCC)"
+      },
+      {
+        "year": 2020,
+        "title": "Energy-Efficient Accelerator Design with 3D-SRAM and Hierarchical Interconnection Architecture for Compact Sparse CNNs",
+        "authors": "C.-Y. Lo; P.-T. Huang; W. Hwang",
+        "venue": "IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)"
+      },
+      {
+        "year": 2019,
+        "title": "An Energy-Efficient Accelerator with Relative-Indexing Memory for Sparse Compressed Convolutional Neural Network",
+        "authors": "I.-C. Wu; P.-T. Huang; C.-Y. Lo; W. Hwang",
+        "venue": "IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)"
+      },
+      {
+        "year": 2018,
+        "title": "SMEM++: A Pipelined and Time-Multiplexed SMEM Seeding Accelerator for DNA Sequencing",
+        "authors": "J. Cong; L. Guo; P.-T. Huang; P. Wei; T. Yu",
+        "venue": "IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM)"
+      },
+      {
+        "year": 2016,
+        "title": "The SMEM Seeding Acceleration for DNA Sequence Alignment",
+        "authors": "P.-T. Huang; C. Y. Hao; Y-T. Chen; C.-L. Kuo; M.-C. F Chang; Jason Cong",
+        "venue": "IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM)"
+      }
+    ]
+  }
+}

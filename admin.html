@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin · EECS Lab (Static)</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    body { padding-top: 16px; }
+    .wrap { width: min(1100px, 92vw); margin: 0 auto; }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    textarea { width: 100%; min-height: 360px; }
+    .bar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .note { color: var(--muted); font-size: .92rem; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Admin (Static)</h1>
+    <p class="note">This is a static admin helper. Edits are <strong>not saved to the server</strong>. Use <em>Download JSON</em> and upload the new <code>assets/site-data.json</code> to your host (GitHub Pages / server).</p>
+
+    <div id="loginBox">
+      <p class="note">Enter admin key (change it in admin.html):</p>
+      <input id="key" class="input" placeholder="Enter key" />
+      <button class="btn primary" id="loginBtn">Unlock</button>
+    </div>
+
+    <div id="app" class="hidden">
+      <div class="bar">
+        <button class="btn" id="reloadBtn">Reload from server</button>
+        <button class="btn" id="validateBtn">Validate JSON</button>
+        <button class="btn primary" id="downloadBtn">Download JSON</button>
+        <span class="note">Updated: <span id="updated"></span></span>
+      </div>
+
+      <div class="spacer"></div>
+      <div class="grid2">
+        <div class="card"><div class="content">
+          <h3>Site Data (JSON)</h3>
+          <textarea id="editor" class="input mono"></textarea>
+        </div></div>
+        <div class="card"><div class="content">
+          <h3>Quick Add · Publication</h3>
+          <label>Title<br><input id="t" class="input"></label><div class="spacer"></div>
+          <label>Authors<br><input id="a" class="input"></label><div class="spacer"></div>
+          <label>Venue<br><input id="v" class="input"></label><div class="spacer"></div>
+          <label>Year<br><input id="y" class="input" type="number" value="2025"></label><div class="spacer"></div>
+          <label>Type<br><input id="ty" class="input" placeholder="conf/journal/preprint"></label><div class="spacer"></div>
+          <label>BibTeX<br><textarea id="b" class="input" rows="6"></textarea></label><div class="spacer"></div>
+          <button class="btn" id="addBtn">Add Publication</button>
+          <p class="note">Then click <em>Download JSON</em> and replace <code>assets/site-data.json</code>.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let ADMIN_KEY = 'lab123'; // TODO: change
+    const loginBox = document.getElementById('loginBox');
+    const app = document.getElementById('app');
+    const editor = document.getElementById('editor');
+    const updated = document.getElementById('updated');
+
+    function unlock() { loginBox.classList.add('hidden'); app.classList.remove('hidden'); load(); }
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const val = document.getElementById('key').value;
+      if (val === ADMIN_KEY) { localStorage.setItem('lab_admin', '1'); unlock(); }
+      else alert('Wrong key');
+    });
+    if (localStorage.getItem('lab_admin') === '1') unlock();
+
+    async function load() {
+      const res = await fetch('assets/site-data.json', {cache:'no-store'});
+      const data = await res.json();
+      updated.textContent = data.meta?.updated || '-';
+      editor.value = JSON.stringify(data, null, 2);
+    }
+    document.getElementById('reloadBtn').addEventListener('click', load);
+
+    document.getElementById('validateBtn').addEventListener('click', () => {
+      try { JSON.parse(editor.value); alert('JSON looks valid.'); } catch(e) { alert('JSON error: ' + e.message); }
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      try {
+        const obj = JSON.parse(editor.value);
+        obj.meta = obj.meta || {}; obj.meta.updated = new Date().toISOString().slice(0,10);
+        const blob = new Blob([JSON.stringify(obj, null, 2)], {type:'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = 'site-data.json'; a.click();
+        URL.revokeObjectURL(url);
+      } catch (e) { alert('Fix JSON before downloading: ' + e.message); }
+    });
+
+    document.getElementById('addBtn').addEventListener('click', () => {
+      try {
+        const obj = JSON.parse(editor.value);
+        const p = { title: t.value, authors: a.value, venue: v.value, year: Number(y.value)||new Date().getFullYear(), type: ty.value||'conf', bibtex: b.value||'@inproceedings{...}'};
+        obj.publications = obj.publications || []; obj.publications.unshift(p);
+        editor.value = JSON.stringify(obj, null, 2);
+        alert('Publication appended to JSON (not saved). Download JSON to export.');
+      } catch (e) { alert('Fix JSON before adding: ' + e.message); }
+    });
+  </script>
+</body>
+</html>
