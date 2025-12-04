@@ -33,6 +33,7 @@
     }
   </style>
 </head>
+
 <body data-page="home">
   <header>
     <div class="container nav">
@@ -53,13 +54,13 @@
     </div>
   </header>
 
-  <!-- dot navigation removed -->
-
   <main id="snap">
+    <!-- Section 1 -->
     <section id="s1" class="panel hero">
       <div class="container" style="text-align:center;">
         <h1 class="reveal">Sustainable Circuits and Architectures for Layered Eco-chips Lab</h1>
         <p id="vision" class="lead reveal" style="margin-inline:auto; max-width:70ch;"></p>
+
         <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <span class="badge">Carbon-Aware</span>
           <span class="badge">3D-IC</span>
@@ -67,20 +68,21 @@
           <span class="badge">CIM</span>
           <span class="badge">ULV</span>
         </div>
-        <!-- hero buttons removed -->
       </div>
-      <!-- scroll cue removed -->
     </section>
 
+    <!-- Section 2 -->
     <section id="s2" class="panel alt">
       <div class="container">
         <div class="grid">
           <div class="col-6">
             <h2 class="reveal">About the Lab</h2>
             <p id="aboutVision" class="reveal"></p>
+
             <div class="line"></div>
             <p class="muted reveal">Office/Lab: Hsinchu City, Building XXX, 5F-510 · Email: lab@eecs.example.edu</p>
           </div>
+
           <div class="col-6 card reveal">
             <div class="content">
               <h3>Highlights</h3>
@@ -95,6 +97,7 @@
       </div>
     </section>
 
+    <!-- Section 3 -->
     <section id="s3" class="panel alt">
       <div class="container" style="text-align:center;">
         <h2 class="reveal">Research Highlights</h2>
@@ -102,13 +105,8 @@
       </div>
     </section>
 
-    <section id="s4" class="panel alt">
-      <div class="container" style="text-align:center;">
-        <h2 class="reveal">Get in Touch</h2>
-        <p class="lead reveal" style="margin-inline:auto; max-width:70ch;">Collaboration, student advising, or media inquiries — we'd love to hear from you.</p>
-        <!-- contact buttons removed -->
-      </div>
-    </section>
+    <!-- (Removed Section 4: Get in Touch) -->
+
   </main>
 
   <footer>
@@ -120,10 +118,11 @@
       <div class="right"><a class="chip" href="#s1">→ Back to Top</a></div>
     </div>
   </footer>
-  
+
   <script src="assets/script.js"></script>
+
   <script>
-    // Reveal-on-scroll (dots-related code removed)
+    // Reveal-on-scroll
     const panels = Array.from(document.querySelectorAll('section.panel'));
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
@@ -134,23 +133,26 @@
     }, { root: document.querySelector('main#snap'), threshold: [0.5] });
     panels.forEach(p => io.observe(p));
 
-    // Load lab vision & research highlights
+    // Load lab vision & highlights
     loadSiteData().then(data => {
       document.getElementById('vision').textContent = data.research.vision;
       document.getElementById('aboutVision').textContent = data.research.vision;
+
       const highlights = document.getElementById('highlights');
       const cards = [];
+
       for (const t of data.research.thrusts) {
         const top = t.bullets.slice(0,3).map(s => `<li>${s}</li>`).join('');
-        cards.push(
-          `<div class="col-6 card reveal">
-             <div class="content">
-               <h3>${t.title}</h3>
-               <ul class="muted" style="text-align:left; margin-top:8px;">${top}</ul>
-             </div>
-           </div>`
-        );
+
+        cards.push(`
+          <div class="col-6 card reveal">
+            <div class="content">
+              <h3>${t.title}</h3>
+              <ul class="muted" style="text-align:left; margin-top:8px;">${top}</ul>
+            </div>
+          </div>`);
       }
+
       highlights.innerHTML = cards.join('');
     }).catch(console.error);
   </script>

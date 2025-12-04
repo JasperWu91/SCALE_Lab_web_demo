@@ -107,7 +107,7 @@
       text-decoration: underline;
     }
 
-    /* about text */
+    /* about text (目前沒用到，可以保留樣式以後需要時再開) */
     .person-about {
       font-size: 0.85rem;
       color: var(--fg);
@@ -277,9 +277,6 @@ function renderPersonItem(person) {
           <a href="mailto:${person.email}" class="person-email">${person.email}</a>
         </div>` : ''}
 
-      ${person.about ? `
-        <div class="person-about">${fixEncoding(person.about)}</div>` : ''}
-
       <div class="person-tags">
         ${(person.tags || []).map(t => `<span class="person-tag">${fixEncoding(t)}</span>`).join('')}
         ${person.company ? `<span class="person-company">${fixEncoding(person.company)}</span>` : ''}
@@ -344,7 +341,7 @@ async function loadSiteData() {
           "name": "Chen, Yu-Ting",
           "role": "phd",
           "about": "Carbon-intensity-aware scheduling for accelerator clusters.",
-          "year": "2022/09 - 2025 (expected)",
+          "year": "2022/09 - 2025",
           "institute": "Institute of Computer Science and Engineering, NYCU",
           "email": "yutin.cs10@nycu.edu.tw",
           "tags": ["carbon-aware", "scheduling"]
@@ -353,7 +350,7 @@ async function loadSiteData() {
           "name": "Lin, Bo-Han",
           "role": "phd",
           "about": "3D-SRAM compute-near-memory for CNN inference.",
-          "year": "2021/09 - 2026 (expected)",
+          "year": "2021/09 - 2026",
           "institute": "Institute of Computer Science and Engineering, NYCU",
           "email": "bohan.cs09@nycu.edu.tw",
           "tags": ["3D-SRAM", "CIM"]
@@ -371,7 +368,7 @@ async function loadSiteData() {
           "name": "Lee, Jun-Peng",
           "role": "ms",
           "about": "LUT-NN quantization & compiler flow.",
-          "year": "2023/09 - 2024 (expected)",
+          "year": "2023/09 - 2024",
           "institute": "Institute of Computer Science and Engineering, NYCU",
           "email": "junpeng.cs12@nycu.edu.tw",
           "tags": ["LUT-NN", "QAT"]
@@ -380,7 +377,7 @@ async function loadSiteData() {
           "name": "Wu, Cindy",
           "role": "ms",
           "about": "Fault-tolerant DRAM controller for TSV 3D.",
-          "year": "2023/09 - 2024 (expected)",
+          "year": "2023/09 - 2024",
           "institute": "Institute of Computer Science and Engineering, NYCU",
           "email": "cindy.cs12@nycu.edu.tw",
           "tags": ["DRAM", "fault-tolerant"]
