@@ -8,12 +8,29 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="assets/style.css" />
   <style>
-    main#snap { height: 100svh; overflow-y: auto; scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-    section.panel { min-height: 100svh; scroll-snap-align: start; display: grid; place-items: center; padding: 84px 6vw 6vw; position: relative; isolation: isolate; }
-    .panel.hero { background:
-      radial-gradient(1200px 600px at 20% 10%, color-mix(in oklab, var(--primary) 15%, transparent), transparent),
-      radial-gradient(1000px 500px at 85% 20%, color-mix(in oklab, var(--primary) 10%, transparent), transparent); }
-    .panel.alt { background: color-mix(in oklab, var(--card) 85%, transparent); }
+    main#snap {
+      height: 100svh;
+      overflow-y: auto;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+    section.panel {
+      min-height: 100svh;
+      scroll-snap-align: start;
+      display: grid;
+      place-items: center;
+      padding: 84px 6vw 6vw;
+      position: relative;
+      isolation: isolate;
+    }
+    .panel.hero {
+      background:
+        radial-gradient(1200px 600px at 20% 10%, color-mix(in oklab, var(--primary) 15%, transparent), transparent),
+        radial-gradient(1000px 500px at 85% 20%, color-mix(in oklab, var(--primary) 10%, transparent), transparent);
+    }
+    .panel.alt {
+      background: color-mix(in oklab, var(--card) 85%, transparent);
+    }
   </style>
 </head>
 <body data-page="home">
@@ -36,12 +53,7 @@
     </div>
   </header>
 
-  <nav class="dots" aria-label="Section navigation">
-    <button class="dotbtn" data-target="#s1" aria-current="true" aria-label="Welcome"></button>
-    <button class="dotbtn" data-target="#s2" aria-label="About"></button>
-    <button class="dotbtn" data-target="#s3" aria-label="Research Highlights"></button>
-    <button class="dotbtn" data-target="#s4" aria-label="Contact"></button>
-  </nav>
+  <!-- dot navigation removed -->
 
   <main id="snap">
     <section id="s1" class="panel hero">
@@ -55,16 +67,9 @@
           <span class="badge">CIM</span>
           <span class="badge">ULV</span>
         </div>
-        <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a class="btn primary" href="research.html">Explore Research</a>
-          <a class="btn" href="publication.html">Publication</a>
-          <a class="btn" href="advisor.html">Advisor</a>
-        </div>
+        <!-- hero buttons removed -->
       </div>
-      <div class="scroll-cue" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        <div>Scroll</div>
-      </div>
+      <!-- scroll cue removed -->
     </section>
 
     <section id="s2" class="panel alt">
@@ -101,14 +106,10 @@
       <div class="container" style="text-align:center;">
         <h2 class="reveal">Get in Touch</h2>
         <p class="lead reveal" style="margin-inline:auto; max-width:70ch;">Collaboration, student advising, or media inquiries — we'd love to hear from you.</p>
-        <div class="reveal" style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-          <a class="btn primary" href="contact.html">Contact</a>
-          <a class="btn" href="people.html">Meet the Team</a>
-        </div>
+        <!-- contact buttons removed -->
       </div>
     </section>
   </main>
-
 
   <footer>
     <div class="container footgrid">
@@ -120,24 +121,20 @@
     </div>
   </footer>
   
-
   <script src="assets/script.js"></script>
   <script>
-    // Dots navigation + reveal
-    const dots = Array.from(document.querySelectorAll('.dotbtn'));
-    dots.forEach(btn => btn.addEventListener('click', () => {
-      const target = document.querySelector(btn.dataset.target);
-      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }));
+    // Reveal-on-scroll (dots-related code removed)
     const panels = Array.from(document.querySelectorAll('section.panel'));
-    const dotById = Object.fromEntries(dots.map(d => [document.querySelector(d.dataset.target).id, d]));
     const io = new IntersectionObserver((entries) => {
-      for (const e of entries) { if (e.isIntersecting && e.intersectionRatio > 0.5) {
-        for (const d of dots) d.setAttribute('aria-current','false'); dotById[e.target.id]?.setAttribute('aria-current','true');
-        e.target.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-      }}}, { root: document.querySelector('main#snap'), threshold: [0.5] });
+      for (const e of entries) {
+        if (e.isIntersecting && e.intersectionRatio > 0.5) {
+          e.target.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+        }
+      }
+    }, { root: document.querySelector('main#snap'), threshold: [0.5] });
     panels.forEach(p => io.observe(p));
 
+    // Load lab vision & research highlights
     loadSiteData().then(data => {
       document.getElementById('vision').textContent = data.research.vision;
       document.getElementById('aboutVision').textContent = data.research.vision;
@@ -145,7 +142,14 @@
       const cards = [];
       for (const t of data.research.thrusts) {
         const top = t.bullets.slice(0,3).map(s => `<li>${s}</li>`).join('');
-        cards.push(`<div class="col-6 card reveal"><div class="content"><h3>${t.title}</h3><ul class="muted" style="text-align:left; margin-top:8px;">${top}</ul></div></div>`);
+        cards.push(
+          `<div class="col-6 card reveal">
+             <div class="content">
+               <h3>${t.title}</h3>
+               <ul class="muted" style="text-align:left; margin-top:8px;">${top}</ul>
+             </div>
+           </div>`
+        );
       }
       highlights.innerHTML = cards.join('');
     }).catch(console.error);

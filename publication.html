@@ -6,152 +6,90 @@
   <title>Publication · EECS Lab</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="assets/style.css" />
-  <style>
-    .publication-section {
-      margin-bottom: 48px;
-    }
-    
-    .section-header {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--fg);
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 12px;
-    }
-    
-    .pub-list {
-      display: grid;
-      gap: 0;
-    }
-    
-    .pub-item {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--fg);
-    }
-    
-    .pub-item:last-child {
-      border-bottom: none;
-    }
-    
-    .pub-item em {
-      font-style: italic;
-      color: var(--fg);
-    }
-    
-    /* Stats summary */
-    .pub-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 32px;
-      padding: 20px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-number {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    
-    .stat-label {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 4px;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 880px) {
-      .pub-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+
+<style>
+  .publication-section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--fg);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 8px;
+  }
+
+  /* Simple list with divider line */
+  .pub-list {
+    list-style-type: none;   /* 不要前面的黑點 */
+    padding-left: 0;
+    margin: 0;
+    color: var(--fg);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .pub-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pub-list li:last-child {
+    border-bottom: none;
+  }
+
+  .pub-list li em {
+    font-style: italic;
+    color: var(--fg);
+  }
+</style>
+
 </head>
+
 <body data-page="publication">
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
-        <a href="index.html" aria-label="Go to home">SCALE Lab</a>
-      </div>
-      
-      <nav>
-        <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
-        <ul id="menu">
-          <li><a data-page="research" href="research.html">Research</a></li>
-          <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
-          <li><a data-page="publication" href="publication.html">Publication</a></li>
-          <li><a data-page="people" href="people.html">People</a></li>
-          <li><a data-page="contact" href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+      <a href="index.html" aria-label="Go to home">SCALE Lab</a>
     </div>
-  </header>
-  
+
+    <nav>
+      <button class="hamburger" aria-label="Open navigation menu" id="menuBtn">☰</button>
+      <ul id="menu">
+        <li><a data-page="research" href="research.html">Research</a></li>
+        <li><a data-page="advisor" href="advisor.html">Advisor</a></li>
+        <li><a data-page="publication" href="publication.html">Publication</a></li>
+        <li><a data-page="people" href="people.html">People</a></li>
+        <li><a data-page="contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
 <section class="section">
   <div class="container">
     <h2>Publications</h2>
-    <p class="lead">Research publications organized by venue type (newest first).</p>
-    
-    <!-- Publication Statistics -->
-    <div id="pubStats" class="pub-stats">
-      <div class="stat-item">
-        <div class="stat-number" id="totalPubs">-</div>
-        <div class="stat-label">Total Publications</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" id="journalCount">-</div>
-        <div class="stat-label">Journal Papers</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" id="topConfCount">-</div>
-        <div class="stat-label">Top Conferences</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" id="confCount">-</div>
-        <div class="stat-label">Conferences</div>
-      </div>
-    </div>
-    
+    <!-- <p class="lead">Listed by category (newest first).</p> -->
+
     <!-- Journal Papers -->
     <div class="publication-section">
       <h3 class="section-header">Journal Papers</h3>
-      <div class="card">
-        <div class="content">
-          <div id="journalList" class="pub-list">Loading journal papers...</div>
-        </div>
-      </div>
+      <ul id="journalList" class="pub-list">Loading journal papers...</ul>
     </div>
-    
+
     <!-- Top Conference Papers -->
     <div class="publication-section">
       <h3 class="section-header">Top Conference Papers</h3>
-      <div class="card">
-        <div class="content">
-          <div id="topConfList" class="pub-list">Loading top conference papers...</div>
-        </div>
-      </div>
+      <ul id="topConfList" class="pub-list">Loading top conference papers...</ul>
     </div>
-    
+
     <!-- Conference Papers -->
     <div class="publication-section">
       <h3 class="section-header">Conference Papers</h3>
-      <div class="card">
-        <div class="content">
-          <div id="confList" class="pub-list">Loading conference papers...</div>
-        </div>
-      </div>
+      <ul id="confList" class="pub-list">Loading conference papers...</ul>
     </div>
   </div>
 </section>
@@ -162,7 +100,7 @@ const menuBtn = document.getElementById('menuBtn');
 const menu = document.getElementById('menu');
 menuBtn?.addEventListener('click', () => menu.classList.toggle('open'));
 
-// Active nav by data-page
+// Active nav highlight
 const page = document.body.dataset.page;
 if (page) {
   const link = document.querySelector(`nav a[data-page="${page}"]`);
@@ -180,96 +118,48 @@ function fixEncoding(text) {
 
 function renderPublicationList(publications, containerId) {
   const container = document.getElementById(containerId);
-  
+
   if (!publications || publications.length === 0) {
-    container.innerHTML = '<div class="muted">No publications in this category yet.</div>';
+    container.innerHTML = '<li class="muted">No publications yet.</li>';
     return;
   }
-  
-  // Sort by year (newest first)
-  const sortedPubs = publications.slice().sort((a, b) => (b.year || 0) - (a.year || 0));
-  
-  const list = sortedPubs.map((p, index) => {
-    // Format: Number. Authors, "Title," Venue, Volume, Year.
-    let citation = `${index + 1}. ${fixEncoding(p.authors || 'Unknown authors')}, "${fixEncoding(p.title || 'Untitled')}" `;
-    citation += `<em>${fixEncoding(p.venue || 'Unknown venue')}</em>`;
-    
-    if (p.volume) {
-      citation += `, ${fixEncoding(p.volume)}`;
-    }
-    
-    citation += `, ${p.year || 'N/A'}.`;
-    
-    return `<div class="pub-item">${citation}</div>`;
-  }).join('');
-  
-  container.innerHTML = list;
-}
 
-function updateStatistics(publications) {
-  const journalCount = publications.journal ? publications.journal.length : 0;
-  const topConfCount = publications.top_conference ? publications.top_conference.length : 0;
-  const confCount = publications.conference ? publications.conference.length : 0;
-  const totalCount = journalCount + topConfCount + confCount;
-  
-  document.getElementById('totalPubs').textContent = totalCount;
-  document.getElementById('journalCount').textContent = journalCount;
-  document.getElementById('topConfCount').textContent = topConfCount;
-  document.getElementById('confCount').textContent = confCount;
+  const sorted = publications.slice().sort((a,b)=> (b.year||0)-(a.year||0));
+
+  const html = sorted.map((p) => {
+    let citation = `${fixEncoding(p.authors)}, “${fixEncoding(p.title)}”, <em>${fixEncoding(p.venue)}</em>`;
+    if (p.volume) citation += `, ${fixEncoding(p.volume)}`;
+    citation += `, ${p.year}.`;
+
+    return `<li>${citation}</li>`;
+  }).join("");
+
+  container.innerHTML = html;
 }
 
 async function loadSiteData() {
   try {
-    console.log('Trying to fetch assets/site-data.json...');
     const res = await fetch('assets/site-data.json', {cache: 'no-store'});
-    if (res.ok) {
-      const data = await res.json();
-      console.log('Successfully loaded site-data.json');
-      return data;
-    }
-    throw new Error(`HTTP ${res.status}`);
+    if (res.ok) return await res.json();
+    throw new Error(res.status);
   } catch (err) {
-    console.warn('Failed to load external JSON, using fallback data:', err);
-    
     return {
-      "publications": {
-        "journal": [],
-        "top_conference": [],
-        "conference": []
-      }
+      publications: { journal: [], top_conference: [], conference: [] }
     };
   }
 }
 
-function initializePage() {
-  loadSiteData()
-    .then(data => {
-      console.log('Data loaded:', data);
-      const publications = data.publications || { journal: [], top_conference: [], conference: [] };
-      console.log('Publications found:', publications);
-      
-      // Update statistics
-      updateStatistics(publications);
-      
-      // Render each category
-      renderPublicationList(publications.journal, 'journalList');
-      renderPublicationList(publications.top_conference, 'topConfList');
-      renderPublicationList(publications.conference, 'confList');
-    })
-    .catch(err => {
-      console.error('Failed to load data:', err);
-      ['journalList', 'topConfList', 'confList'].forEach(id => {
-        document.getElementById(id).innerHTML = 
-          '<div class="muted">Failed to load publication data. Please check console for details.</div>';
-      });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', initializePage);
+document.addEventListener('DOMContentLoaded', () => {
+  loadSiteData().then(data => {
+    const pub = data.publications;
+    renderPublicationList(pub.journal, "journalList");
+    renderPublicationList(pub.top_conference, "topConfList");
+    renderPublicationList(pub.conference, "confList");
+  });
+});
 
 // Footer year
-const yearElement = document.getElementById('yearNow');
-if (yearElement) yearElement.textContent = new Date().getFullYear();
+document.getElementById('yearNow').textContent = new Date().getFullYear();
 </script>
 
 <footer>

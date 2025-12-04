@@ -84,23 +84,24 @@
       color: var(--fg);
     }
     
-    /* Section styling */
+    /* Section styling – no boxes, just clean headings + lists */
     .section-block {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 2px 24px 16px;
-      margin-bottom: 8px;
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      margin-bottom: 32px;
     }
     
     .section-header {
       font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: var(--fg);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 12px;
+      border-bottom: 2px solid var(--fg); /* 用較深顏色 + 稍微加粗 */
+      padding-bottom: 8px;
     }
+
     
     .item-list {
       display: grid;
@@ -108,7 +109,7 @@
     }
     
     .list-item {
-      padding: 20px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
     }
     
@@ -120,9 +121,9 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
     
     .item-title {
@@ -147,11 +148,11 @@
     /* Research interests as simple list */
     .research-grid {
       display: grid;
-      gap: 16px;
+      gap: 0;
     }
     
     .research-item {
-      padding: 16px 0;
+      padding: 8px 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
       line-height: 1.6;
@@ -168,7 +169,7 @@
     }
     
     .award-item {
-      padding: 16px 0;
+      padding: 8px 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -217,19 +218,20 @@
       }
       
       .section-block {
-        padding: 24px 20px;
+        padding: 0;
+        margin-bottom: 24px;
       }
       
       .item-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 4px;
       }
       
       .award-item {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 4px;
       }
     }
   </style>

@@ -7,6 +7,7 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body data-page="contact">
   <header>
     <div class="container nav">
@@ -25,47 +26,40 @@
           <li><a data-page="contact" href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    
     </div>
   </header>
-  
+
 <section class="section">
-  <div class="container grid">
-    <div class="col-6">
-      <h2>Contact</h2>
-      <p class="lead">Visits and collaborations are welcome.</p>
-      <form class="card" onsubmit="event.preventDefault(); alert('Submitted — thank you!\n(This is a front-end demo.)');">
-        <div class="content">
-          <label>Your Name<br /><input class="input" required /></label>
-          <div class="spacer"></div>
-          <label>Email<br /><input type="email" class="input" required /></label>
-          <div class="spacer"></div>
-          <label>Message<br /><textarea class="input" rows="4" required></textarea></label>
-          <div class="spacer"></div>
-          <button class="btn primary" type="submit">Send</button>
+  <div class="container" style="max-width:720px;">
+    <h2>Contact</h2>
+    <p class="lead">Visits, collaboration, or advising inquiries are welcome.</p>
+
+    <div class="card">
+      <div class="content">
+        <h3>Location</h3>
+
+        <p class="muted" style="line-height:1.6;">
+          Sustainable Circuits and Architectures for Layered Eco-chips Lab (SCALE Lab)<br>
+          Hsinchu City, Building XXX, 5F-510<br>
+          Email: <a href="mailto:lab@eecs.example.edu">lab@eecs.example.edu</a>
+        </p>
+
+        <div style="aspect-ratio:16/9; border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-top:16px;">
+          <iframe title="map" width="100%" height="100%" style="border:0" loading="lazy"
+            src="https://maps.google.com/maps?q=Hsinchu%20City&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
-      </form>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <div class="content">
-          <h3>Location</h3>
-          <p class="muted">Hsinchu City, Building XXX, 5F-510</p>
-          <div style="aspect-ratio:16/9; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
-            <iframe title="map" width="100%" height="100%" style="border:0" loading="lazy"
-              src="https://maps.google.com/maps?q=Hsinchu%20City&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
 </section>
 
-  <footer>
-    <div class="container" style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--muted);">
-      © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab.
-    </div>
-  </footer>
-  <script src="assets/script.js"></script>
+<footer>
+  <div class="container" style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--muted);">
+    © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab.
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
