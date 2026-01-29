@@ -6,171 +6,215 @@
   <title>People · SCALE Lab</title>
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="assets/style.css" />
+  
   <style>
-    /* Clean list-style people layout */
-
-    .people-section {
-      margin: 32px 0;
+    /* Member Cards Grid - 3 columns */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
     }
 
-    /* section title: strong divider */
-    .section-header {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 2px solid var(--fg); /* 深色底線區隔 */
+    .member-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .member-photo {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary-weak), color-mix(in oklab, var(--primary) 20%, transparent));
       display: flex;
       align-items: center;
-      gap: 12px;
-    }
-
-    .section-count {
-      background: var(--primary);
-      color: #fff;
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 0.75rem;
-    }
-
-    /* 一般說明文字稍微拉開行距 */
-    .lead {
-      margin-bottom: 24px;
-      line-height: 1.6;
-    }
-
-    /* 單一成員（無卡片框，只用底線） */
-    .people-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .people-item {
-      padding: 16px 0;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-weight: bold;
       border-bottom: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
     }
 
-    .people-item:last-child {
-      border-bottom: none;
+    .member-info {
+      padding: 20px;
     }
 
-    /* name + year */
-    .person-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px;
+    .member-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
     }
 
-    .person-name {
+    .member-name {
       font-size: 1rem;
       font-weight: 700;
       color: var(--fg);
-      margin: 0;
+      margin-bottom: 4px;
     }
 
-    .person-name .english-name {
-      color: var(--muted);
+    .member-email {
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
       font-size: 0.9rem;
-      font-weight: 500;
+      transition: opacity 0.2s;
     }
 
-    .person-year {
-      color: var(--muted);
-      font-size: 0.8rem;
-      white-space: nowrap;
+    .member-email:hover {
+      opacity: 0.8;
     }
 
-    /* label/value rows */
-    .person-info {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .info-label {
+    .section-title {
       font-weight: 600;
       color: var(--fg);
-      margin-right: 4px;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      font-size: 0.95rem;
     }
 
-    .person-email {
-      color: var(--fg);
-      text-decoration: none;
+    .section-title::before {
+      content: '▸';
+      margin-right: 6px;
+      color: var(--primary);
     }
 
-    .person-email:hover {
-      text-decoration: underline;
+    .member-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-left: 20px;
+      margin-bottom: 8px;
     }
 
-    /* about text (目前沒用到，可以保留樣式以後需要時再開) */
-    .person-about {
-      font-size: 0.85rem;
-      color: var(--fg);
-      margin-top: 4px;
+    .member-info ul {
+      margin-left: 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
       line-height: 1.5;
     }
 
-    /* tags */
-    .person-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
+    .member-info ul li {
+      margin-bottom: 6px;
+    }
+
+    /* Alumni Table */
+    .alumni-section {
+      margin-top: 48px;
+    }
+
+    .alumni-table {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+
+    .alumni-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .alumni-table thead {
+      background: var(--primary-weak);
+      color: var(--fg);
+    }
+
+    .alumni-table th {
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .alumni-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg);
+      font-size: 0.95rem;
+    }
+
+    .alumni-table tbody tr:hover {
+      background: var(--primary-weak);
+    }
+
+    .alumni-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .degree-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .degree-phd {
+      background: color-mix(in oklab, var(--primary) 15%, transparent);
+      color: var(--primary);
+    }
+
+    .degree-ms {
+      background: color-mix(in oklab, var(--primary) 10%, transparent);
+      color: var(--primary);
+    }
+
+    .alumni-table td em {
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: block;
       margin-top: 4px;
     }
 
-    .person-tag {
-      background: none;
-      border: 1px solid var(--border);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      color: var(--muted);
+    /* Section spacing */
+    .section {
+      padding-top: 48px;
+      padding-bottom: 48px;
     }
 
-    .person-company {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 2px 6px;
-      font-size: 0.7rem;
-      border-radius: 4px;
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-
-    .empty-section {
-      padding: 20px 0;
-      text-align: center;
-      color: var(--muted);
-      font-style: italic;
-      border-bottom: 1px dashed var(--border);
-    }
-
-    /* responsive 小螢幕只需要微調文字大小就好 */
-    @media (max-width: 640px) {
-      .section-header {
-        font-size: 1.2rem;
+    @media (max-width: 768px) {
+      .members-grid {
+        grid-template-columns: 1fr;
       }
 
-      .person-name {
-        font-size: 0.95rem;
+      .alumni-table {
+        overflow-x: auto;
       }
 
-      .person-about {
-        font-size: 0.8rem;
+      .alumni-table table {
+        min-width: 600px;
       }
     }
   </style>
 </head>
-<body id="top" data-page="people">
+
+<body data-page="people">
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="assets/images/logo.svg" alt="EECS Lab Logo" class="logo">
+        <img src="assets/images/logo.svg" alt="SCALE Lab Logo" class="logo">
         <a href="index.html" aria-label="Go to home">SCALE Lab</a>
       </div>
       
@@ -186,261 +230,270 @@
       </nav>
     </div>
   </header>
-  
+
   <section class="section">
     <div class="container">
       <h2>People</h2>
       <p class="lead">Our research team members and their career destinations.</p>
 
-      <!-- PhD Students Section -->
-      <div class="people-section" id="phdSection">
-        <h3 class="section-header">
-          Ph.D. Students
-          <span class="section-count" id="phdSectionCount">0</span>
-        </h3>
-        <div class="people-grid" id="phdList">
-          <div class="empty-section">Loading Ph.D. student data...</div>
+      <!-- Current Students -->
+      <h3 style="margin-top: 48px; margin-bottom: 24px; color: var(--fg);">Current Students</h3>
+      
+      <div class="members-grid">
+        <!-- Member Card 1 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 張小明 (Ming)</div>
+              <div class="member-name">English Name: Xiao-Ming Zhang</div>
+              <a href="mailto:ming.zhang@nycu.edu.tw" class="member-email">
+                <span>✉</span> ming.zhang@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>Ph.D. student focusing on energy-efficient AI accelerators</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>深度學習硬體加速器設計</li>
+              <li>低功耗記憶體架構</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>DAC 2024 Best Paper Nominee</li>
+              <li>ISSCC 2023 Student Research Preview</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Member Card 2 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 李雅婷 (Ting)</div>
+              <div class="member-name">English Name: Ya-Ting Li</div>
+              <a href="mailto:yating.li@nycu.edu.tw" class="member-email">
+                <span>✉</span> yating.li@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>M.S. student working on neuromorphic computing systems</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>類神經形態運算架構</li>
+              <li>專題: RISC-V處理器設計與優化</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>2023 Presidential Award</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Member Card 3 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 王建國 (Kevin)</div>
+              <div class="member-name">English Name: Jian-Guo Wang</div>
+              <a href="mailto:kevin.wang@nycu.edu.tw" class="member-email">
+                <span>✉</span> kevin.wang@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>Ph.D. student specializing in 3D IC design</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>3D積體電路設計與驗證</li>
+              <li>先進封裝技術研究</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>ICCAD 2023 Excellent Paper Award</li>
+              <li>IEEE SSCS Taipei Chapter Best Student Paper</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Member Card 4 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 陳怡君 (Iris)</div>
+              <div class="member-name">English Name: Yi-Jun Chen</div>
+              <a href="mailto:iris.chen@nycu.edu.tw" class="member-email">
+                <span>✉</span> iris.chen@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>M.S. student interested in ML hardware optimization</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>機器學習硬體最佳化</li>
+              <li>專題: FPGA-based CNN加速器實作</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>ASP-DAC 2024 Student Forum Presenter</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Member Card 5 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 林志偉 (David)</div>
+              <div class="member-name">English Name: Zhi-Wei Lin</div>
+              <a href="mailto:david.lin@nycu.edu.tw" class="member-email">
+                <span>✉</span> david.lin@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>Ph.D. student working on quantum computing architectures</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>量子運算架構設計</li>
+              <li>量子錯誤更正碼實現</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>QCE 2023 Best Poster Award</li>
+              <li>國科會博士生研究獎</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Member Card 6 -->
+        <div class="member-card">
+          <div class="member-photo">照片</div>
+          <div class="member-info">
+            <div class="member-header">
+              <div class="member-name">Chinese Name: 黃詩涵 (Sophia)</div>
+              <div class="member-name">English Name: Shi-Han Huang</div>
+              <a href="mailto:sophia.huang@nycu.edu.tw" class="member-email">
+                <span>✉</span> sophia.huang@nycu.edu.tw
+              </a>
+            </div>
+            <div class="section-title">Bio</div>
+            <p>M.S. student focusing on power management IC design</p>
+            <div class="section-title">Research Interests:</div>
+            <ul>
+              <li>電源管理晶片設計</li>
+              <li>專題: DC-DC轉換器效能分析與設計</li>
+            </ul>
+            <div class="section-title">Achievement:</div>
+            <ul>
+              <li>VLSI-DAT 2024 Student Paper Award</li>
+            </ul>
+          </div>
         </div>
       </div>
-      
-      <!-- MS Students Section -->
-      <div class="people-section" id="msSection">
-        <h3 class="section-header">
-          M.S. Students
-          <span class="section-count" id="msSectionCount">0</span>
-        </h3>
-        <div class="people-grid" id="msList">
-          <div class="empty-section">Loading M.S. student data...</div>
-        </div>
-      </div>
-      
+
       <!-- Alumni Section -->
-      <div class="people-section" id="alumniSection">
-        <h3 class="section-header">
-          Alumni
-          <span class="section-count" id="alumniSectionCount">0</span>
-        </h3>
-        <div class="people-grid" id="alumniList">
-          <div class="empty-section">Loading alumni data...</div>
+      <div class="alumni-section">
+        <h3 style="margin-bottom: 24px; color: var(--fg);">Alumni</h3>
+        
+        <div class="alumni-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Graduation</th>
+                <th>Thesis Title</th>
+                <th>Position</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>盧緯</td>
+                <td>2025.02<span class="degree-badge degree-phd">Ph.D.</span></td>
+                <td>
+                  結合三維靜態記憶體與嵌入式主動橋接晶片組之彈性節能連線架構並應用於記憶體密集型人工智慧
+                  <em>Flexible and Energy-Efficient Interconnection Architectures with 3D-SRAM and Embedded Active bridge Chipset for Memory-intensive AI applications</em>
+                </td>
+                <td>NYCU, Post-doc</td>
+              </tr>
+              <tr>
+                <td>盧緯</td>
+                <td>2020.09<span class="degree-badge degree-ms">M.S.</span></td>
+                <td>
+                  利用交叉環狀連線網路架構與3D堆疊靜態記憶體實現CNN-LSTM神經網路節能加速器
+                  <em>An Energy-Efficient Accelerator using Cross-Ring Interconnection Architecture with 3D-SRAM for Hybrid CNN-LSTM Network</em>
+                </td>
+                <td>NYCU, Ph.D.</td>
+              </tr>
+              <tr>
+                <td>陳大華</td>
+                <td>2024.06<span class="degree-badge degree-ms">M.S.</span></td>
+                <td>
+                  基於深度學習之低功耗影像分類硬體加速器設計
+                  <em>Low-Power Hardware Accelerator Design for Deep Learning-based Image Classification</em>
+                </td>
+                <td>MediaTek Inc.</td>
+              </tr>
+              <tr>
+                <td>林雅雯</td>
+                <td>2024.01<span class="degree-badge degree-phd">Ph.D.</span></td>
+                <td>
+                  應用於邊緣運算之高效能神經網路處理器架構研究
+                  <em>High-Performance Neural Network Processor Architecture for Edge Computing Applications</em>
+                </td>
+                <td>TSMC, Senior Engineer</td>
+              </tr>
+              <tr>
+                <td>王志明</td>
+                <td>2023.07<span class="degree-badge degree-ms">M.S.</span></td>
+                <td>
+                  可重組態神經網路加速器之設計與實現
+                  <em>Design and Implementation of Reconfigurable Neural Network Accelerator</em>
+                </td>
+                <td>Novatek Microelectronics</td>
+              </tr>
+              <tr>
+                <td>張美玲</td>
+                <td>2023.01<span class="degree-badge degree-phd">Ph.D.</span></td>
+                <td>
+                  三維異質整合技術應用於高頻寬記憶體系統之研究
+                  <em>3D Heterogeneous Integration Technology for High-Bandwidth Memory Systems</em>
+                </td>
+                <td>Intel Corporation, USA</td>
+              </tr>
+              <tr>
+                <td>劉家豪</td>
+                <td>2022.12<span class="degree-badge degree-ms">M.S.</span></td>
+                <td>
+                  應用於物聯網之超低功耗處理器設計
+                  <em>Ultra-Low-Power Processor Design for Internet of Things Applications</em>
+                </td>
+                <td>Realtek Semiconductor</td>
+              </tr>
+              <tr>
+                <td>黃俊傑</td>
+                <td>2022.06<span class="degree-badge degree-ms">M.S.</span></td>
+                <td>
+                  基於FPGA之即時影像處理系統設計
+                  <em>FPGA-based Real-time Image Processing System Design</em>
+                </td>
+                <td>Synopsys Inc.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </section>
 
-<script>
-// Mobile menu toggle
-const menuBtn = document.getElementById('menuBtn');
-const menu = document.getElementById('menu');
-menuBtn?.addEventListener('click', () => menu.classList.toggle('open'));
-
-// Active nav by data-page
-const page = document.body.dataset.page;
-if (page) {
-  const link = document.querySelector(`nav a[data-page="${page}"]`);
-  link?.classList.add('active');
-}
-
-let peopleCache = [];
-
-function fixEncoding(text) {
-  if (typeof text !== 'string') return text;
-  return text
-    .replace(/Ã¢â‚¬'/g, '-')
-    .replace(/Ã¢â‚¬"/g, '—')
-    .replace(/Ã‚Â·/g, '·')
-    .replace(/Ã¢â‚¬Â¦/g, '…');
-}
-
-function renderPersonItem(person) {
-  const hasChineseName = person.name.includes('陳冠霖') || /[\u4e00-\u9fff]/.test(person.name);
-  let nameDisplay = fixEncoding(person.name);
-  
-  if (hasChineseName && person.name.includes('Brian Chen')) {
-    nameDisplay = `陳冠霖 <span class="english-name">Brian Chen</span>`;
-  }
-
-  return `
-    <div class="people-item">
-      <div class="person-header">
-        <h3 class="person-name">${nameDisplay}</h3>
-        ${person.year ? `<div class="person-year">${fixEncoding(person.year)}</div>` : ''}
-      </div>
-
-      ${person.institute ? `
-        <div class="person-info">
-          <span class="info-label">Institute:</span>
-          <span>${fixEncoding(person.institute)}</span>
-        </div>` : ''}
-
-      ${person.email ? `
-        <div class="person-info">
-          <span class="info-label">Email:</span>
-          <a href="mailto:${person.email}" class="person-email">${person.email}</a>
-        </div>` : ''}
-
-      <div class="person-tags">
-        ${(person.tags || []).map(t => `<span class="person-tag">${fixEncoding(t)}</span>`).join('')}
-        ${person.company ? `<span class="person-company">${fixEncoding(person.company)}</span>` : ''}
-      </div>
-    </div>
-  `;
-}
-
-function renderPeopleByRole() {
-  const roles = ['phd', 'ms', 'alumni'];
-
-  roles.forEach(role => {
-    const people = peopleCache.filter(p => p.role === role);
-    const container = document.getElementById(`${role}List`);
-    const countElement = document.getElementById(`${role}SectionCount`);
-    const sectionElement = document.getElementById(`${role}Section`);
-
-    if (!people.length) {
-      container.innerHTML = '<div class="empty-section">No members in this category.</div>';
-      countElement.textContent = '0';
-      sectionElement.style.display = 'none';
-    } else {
-      container.innerHTML = people.map(renderPersonItem).join('');
-      countElement.textContent = people.length;
-      sectionElement.style.display = 'block';
-    }
-  });
-}
-
-async function loadSiteData() {
-  try {
-    const res = await fetch('assets/site-data.json', {cache: 'no-store'});
-    if (res.ok) {
-      const data = await res.json();
-      return data;
-    }
-    throw new Error(`HTTP ${res.status}`);
-  } catch (err) {
-    console.warn('Failed to load external JSON, using fallback data:', err);
-
-    return {
-      "people": [
-        {
-          "name": "Prof. Po-Tsang Huang",
-          "role": "faculty",
-          "about": "PI — Sustainable Circuits & Systems, 3D-IC Design, Energy-Efficient VLSI, Memory-Centric Computing.",
-          "company": "NCTU/NYCU",
-          "institute": "International College of Semiconductor Technology (ICST)",
-          "email": "bughuang@nctu.edu.tw",
-          "tags": ["PI", "Advisor"]
-        },
-        {
-          "name": "Dr. Ada Wang",
-          "role": "faculty",
-          "about": "Co-PI — Emerging Memories, 3D-IC power delivery.",
-          "company": "NCTU/NYCU",
-          "institute": "International College of Semiconductor Technology (ICST)",
-          "email": "adawang@nctu.edu.tw",
-          "tags": ["Co-PI", "3D-IC"]
-        },
-        {
-          "name": "Chen, Yu-Ting",
-          "role": "phd",
-          "about": "Carbon-intensity-aware scheduling for accelerator clusters.",
-          "year": "2022/09 - 2025",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "email": "yutin.cs10@nycu.edu.tw",
-          "tags": ["carbon-aware", "scheduling"]
-        },
-        {
-          "name": "Lin, Bo-Han",
-          "role": "phd",
-          "about": "3D-SRAM compute-near-memory for CNN inference.",
-          "year": "2021/09 - 2026",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "email": "bohan.cs09@nycu.edu.tw",
-          "tags": ["3D-SRAM", "CIM"]
-        },
-        {
-          "name": "陳冠霖 Brian Chen",
-          "role": "ms",
-          "about": "Machine learning accelerator design with emerging memory technologies.",
-          "year": "2024/09 - now",
-          "institute": "Institute of Multimedia Engineering, NYCU",
-          "email": "brian.cs13@nycu.edu.tw",
-          "tags": ["ML-accelerator", "emerging-memory"]
-        },
-        {
-          "name": "Lee, Jun-Peng",
-          "role": "ms",
-          "about": "LUT-NN quantization & compiler flow.",
-          "year": "2023/09 - 2024",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "email": "junpeng.cs12@nycu.edu.tw",
-          "tags": ["LUT-NN", "QAT"]
-        },
-        {
-          "name": "Wu, Cindy",
-          "role": "ms",
-          "about": "Fault-tolerant DRAM controller for TSV 3D.",
-          "year": "2023/09 - 2024",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "email": "cindy.cs12@nycu.edu.tw",
-          "tags": ["DRAM", "fault-tolerant"]
-        },
-        {
-          "name": "Huang, I-Chun",
-          "role": "alumni",
-          "about": "M.S. 2020 — ASIC design and verification for memory controllers.",
-          "year": "2018/09 - 2020/06",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "company": "MediaTek (Design Engineer)",
-          "tags": ["ASIC", "industry"]
-        },
-        {
-          "name": "Chen, Mei-Lin",
-          "role": "alumni",
-          "about": "M.S. 2019 — 3D-SRAM design for neural network accelerators.",
-          "year": "2017/09 - 2019/06",
-          "institute": "Institute of Computer Science and Engineering, NYCU",
-          "company": "Stanford University (Ph.D. Student)",
-          "tags": ["PhD", "Systems"]
-        }
-      ]
-    };
-  }
-}
-
-function initializePage() {
-  loadSiteData()
-    .then(data => {
-      peopleCache = data.people || [];
-      renderPeopleByRole();
-    })
-    .catch(err => {
-      console.error('Failed to load data:', err);
-      ['phdList', 'msList', 'alumniList'].forEach(id => {
-        document.getElementById(id).innerHTML = 
-          '<div class="empty-section">Failed to load people data.</div>';
-      });
-    });
-
-  // Footer year
-  const yearElement = document.getElementById('yearNow');
-  if (yearElement) yearElement.textContent = new Date().getFullYear();
-}
-
-document.addEventListener('DOMContentLoaded', initializePage);
-</script>
-
   <footer>
-    <div class="container footgrid">
-      <div>
-        <div class="brand" style="margin-bottom:8px">
-          <span class="dot"></span>
-          <strong>Sustainable Circuits and Architectures for Layered Eco-chips Lab</strong>
-        </div>
-        <div class="muted">
-          © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab. All rights reserved.
-        </div>
-      </div>
-      <div class="right"><a class="chip" href="#top">→ Back to Top</a></div>
+    <div class="container" style="padding: 20px 0; border-top: 1px solid var(--border); color: var(--muted);">
+      © <span id="yearNow"></span> Sustainable Circuits and Architectures for Layered Eco-chips Lab.
     </div>
   </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>

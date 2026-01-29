@@ -98,7 +98,7 @@
       font-weight: 700;
       margin-bottom: 16px;
       color: var(--fg);
-      border-bottom: 2px solid var(--fg); /* 用較深顏色 + 稍微加粗 */
+      border-bottom: 2px solid var(--fg);
       padding-bottom: 8px;
     }
 
@@ -152,10 +152,20 @@
     }
     
     .research-item {
-      padding: 8px 0;
+      padding: 8px 0 8px 20px;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
       line-height: 1.6;
+      position: relative;
+    }
+    
+    .research-item::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
     }
     
     .research-item:last-child {
@@ -264,7 +274,7 @@
     <!-- Hero Section -->
     <div class="advisor-hero">
       <div class="advisor-photo">
-        <img src="assets/images/prof.jpg" alt="Prof. Po-Tsang Huang" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<div>Photo<br>Coming Soon</div>';">
+        <img src="assets/images/bug.png" alt="Prof. Po-Tsang Huang" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.parentElement.innerHTML='<div>Photo<br>Coming Soon</div>';">
       </div>
       <div class="advisor-details">
         <h1>黃 柏 蒼 Po-Tsang Huang<br><span style="font-size: 1.1rem; color: var(--muted); font-weight: 400;">(Bug Huang)</span></h1>
@@ -285,12 +295,13 @@
           </div>
           <div class="contact-item">
             <span class="contact-label">Email</span>
-            <span class="contact-value">bughuang@nctu.edu.tw</span>
+            <span class="contact-value"><a href="mailto:pthuang@nycu.edu.tw">pthuang@nycu.edu.tw</a></span>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Education & Work Experience Side by Side -->
     <div class="grid">
       <div class="col-6">
         <!-- Education Section -->
@@ -320,7 +331,9 @@
             </div>
           </div>
         </div>
-
+      </div>
+      
+      <div class="col-6">
         <!-- Work Experience Section -->
         <div class="section-block">
           <h3 class="section-header">Work Experience</h3>
@@ -363,17 +376,23 @@
           </div>
         </div>
       </div>
-      
-      <div class="col-6">
-        <!-- Research Interests Section -->
-        <div class="section-block">
-          <h3 class="section-header">Research Interests</h3>
+    </div>
+
+    <!-- Research Interests Section (Full Width with 2 columns) -->
+    <div class="section-block">
+      <h3 class="section-header">Research Interests</h3>
+      <div class="grid">
+        <div class="col-6">
           <div class="research-grid">
             <div class="research-item">Acceleration design for AI and machine learning applications</div>
             <div class="research-item">3D-IC design (Monolithic 3D-IC & TSV 3D-IC)</div>
             <div class="research-item">Energy-Efficient digital IC (VLSI) design</div>
             <div class="research-item">Low-power embedded memory design (Latch, SRAM, Register-File, FIFO, CAM/TCAM)</div>
             <div class="research-item">Computation-in-memory circuits and architecture</div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="research-grid">
             <div class="research-item">Memory sub-system for heterogeneous multi-core SoC/SiP</div>
             <div class="research-item">Ultra-low voltage IC design for IoT and biomedical applications</div>
             <div class="research-item">Accelerator-rich and memory-rich computer architectures for domain-specific computing</div>
