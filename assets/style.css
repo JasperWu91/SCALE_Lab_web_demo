@@ -27,7 +27,7 @@ header { position: sticky; top: 0; backdrop-filter: saturate(1.2) blur(8px); bac
 
 /* Logo styling */
 .logo {
-  height: 60px;
+  height: 100px;
   width: auto;
   transition: opacity 0.2s ease;
   flex-shrink: 0;

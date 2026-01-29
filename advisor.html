@@ -10,20 +10,21 @@
     /* Modern tech-inspired advisor page */
     .advisor-hero {
       display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 32px;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       align-items: start;
       margin-bottom: 48px;
     }
     
     .advisor-photo {
-      width: 200px;
-      height: 240px;
-      border-radius: 8px;
+      width: 80%;
+      height: 500px;
+      border-radius: 5px;
       overflow: hidden;
       background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
       border: 1px solid var(--border);
       position: relative;
+      box-shadow: var(--shadow);
     }
     
     .advisor-photo img {
@@ -90,13 +91,13 @@
       border: none;
       border-radius: 0;
       padding: 0;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
     
     .section-header {
       font-size: 1.4rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       color: var(--fg);
       border-bottom: 2px solid var(--fg);
       padding-bottom: 8px;
@@ -109,7 +110,7 @@
     }
     
     .list-item {
-      padding: 12px 0;
+      padding: 10px 0;
       border-bottom: 1px solid var(--border);
     }
     
@@ -152,7 +153,7 @@
     }
     
     .research-item {
-      padding: 8px 0 8px 20px;
+      padding: 10px 0 10px 20px;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
       line-height: 1.6;
@@ -179,7 +180,7 @@
     }
     
     .award-item {
-      padding: 8px 0;
+      padding: 10px 0;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
@@ -208,13 +209,13 @@
     @media (max-width: 880px) {
       .advisor-hero {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 32px;
         text-align: center;
       }
       
       .advisor-photo {
-        width: 180px;
-        height: 220px;
+        width: 100%;
+        height: 400px;
         margin: 0 auto;
       }
       
